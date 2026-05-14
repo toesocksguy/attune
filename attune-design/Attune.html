@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attune — Couples card deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin:0; padding:0; }
+  body {
+    background: #050309;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(123,79,166,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 90% 100%, rgba(196,112,138,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 10% 80%, rgba(155,110,200,0.08) 0%, transparent 60%);
+    min-height: 100vh;
+    font-family: 'Jost', system-ui, sans-serif;
+    color: #F0EAF8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 24px 96px;
+    overflow-x: hidden;
+  }
+  /* Page wordmark */
+  .page-mark { text-align: center; margin-bottom: 36px; }
+  .page-mark .mono {
+    font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.42em; text-transform: uppercase; color: #7A6A90;
+    margin-bottom: 10px;
+  }
+  .page-mark .mark {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 34px; color: #F0EAF8; letter-spacing: 0.02em;
+  }
+  .page-mark .rule {
+    width: 32px; height: 1px; background: linear-gradient(90deg, transparent, #524569, transparent);
+    margin: 14px auto 12px;
+  }
+  .page-mark .sub {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 14px; color: #B8A8D0; letter-spacing: 0.04em;
+  }
+  /* Screen jumper */
+  .jumper {
+    display: flex; gap: 6px; margin-bottom: 28px; flex-wrap: wrap; justify-content: center;
+  }
+  .jumper button {
+    appearance: none; background: transparent; cursor: pointer;
+    border: 1px solid #3D3255; color: #7A6A90;
+    font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 8px 14px; border-radius: 100px;
+    transition: all .25s ease;
+  }
+  .jumper button:hover { border-color: #9B6EC8; color: #C49AE8; }
+  .jumper button.active {
+    background: rgba(123,79,166,0.12); border-color: #7B4FA6; color: #F0EAF8;
+  }
+
+  /* Phone glow shroud */
+  .phone-shroud {
+    position: relative;
+  }
+  .phone-shroud::before {
+    content: ''; position: absolute; inset: -100px;
+    background: radial-gradient(ellipse 60% 40% at 50% 30%, rgba(123,79,166,0.35) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  .phone-shroud > * { position: relative; z-index: 1; }
+
+  /* SVG grain filter for textures */
+  .grain-defs { position: absolute; width: 0; height: 0; }
+
+  /* App content reset inside frame */
+  .attune-root { width: 100%; height: 100%; background: #0D0A12; color: #F0EAF8; }
+  .attune-root button { font-family: inherit; cursor: pointer; }
+  .attune-root *::-webkit-scrollbar { display: none; }
+  .attune-root * { scrollbar-width: none; }
+
+  /* Footer */
+  .footer-note {
+    margin-top: 56px; text-align: center;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 13px; color: #524569; max-width: 380px; line-height: 1.6;
+  }
+  .footer-note .line { color: #7A6A90; }
+</style>
+</head>
+<body>
+
+<!-- Reused SVG defs: grain, vignette -->
+<svg class="grain-defs" aria-hidden="true">
+  <defs>
+    <filter id="attune-grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.77   0 0 0 0 0.60   0 0 0 0 0.91   0 0 0 0.55 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="page-mark">
+  <div class="mono">A · couples · card · deck</div>
+  <div class="mark">Attune</div>
+  <div class="rule"></div>
+  <div class="sub">Android · editorial intimacy direction</div>
+</div>
+
+<div class="jumper" id="jumper"></div>
+
+<div class="phone-shroud">
+  <div id="phone-host"></div>
+</div>
+
+<div class="footer-note">
+  <div>An offline ritual for two.</div>
+  <div class="line">No accounts · no cloud · no urgency.</div>
+</div>
+
+<!-- Pinned React stack -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<!-- Tweaks defaults block (host rewrites on edits) -->
+<script>
+window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "glow": 70,
+  "grain": 40,
+  "ornament": "brackets",
+  "palette": "violet",
+  "showSpicy": true,
+  "cardBackMotif": "vesica"
+}/*EDITMODE-END*/;
+</script>
+
+<script type="text/babel" src="android-frame.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="attune-app.jsx"></script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attune — Mockup v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --void:#0D0A12; --deep:#130E1C; --surface:#1C1528; --surface2:#241D33; --surface3:#2E2542;
+  --rim:#3D3255; --rim2:#524569;
+  --plum:#7B4FA6; --plum-light:#9B6EC8; --plum-glow:#C49AE8;
+  --rose:#C4708A; --rose-light:#E8A0B8; --gold:#C8A96E;
+  --text:#F0EAF8; --text-soft:#B8A8D0; --text-faint:#7A6A90; --text-ghost:#3D3255;
+  --c-warmup:#8BB88A; --c-connect:#7A9EC4; --c-depth:#9B6EC8;
+  --c-physical:#C4708A; --c-challenge:#C8A96E; --c-spicy:#E8A0B8;
+}
+body {
+  background:#080610;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(123,79,166,.25) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 80% 80%,rgba(196,112,138,.12) 0%,transparent 50%);
+  font-family:'Jost',sans-serif; min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; padding:48px 20px 80px;
+}
+.page-wordmark { font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; letter-spacing:.3em; color:var(--text-faint); margin-bottom:6px; text-transform:uppercase; }
+.page-sub { font-size:11px; color:var(--text-ghost); letter-spacing:.1em; margin-bottom:40px; }
+.nav { display:flex; gap:6px; margin-bottom:36px; flex-wrap:wrap; justify-content:center; }
+.nav-btn { padding:7px 18px; border-radius:100px; border:1px solid var(--rim); background:transparent; font-family:'Jost',sans-serif; font-size:12px; font-weight:400; color:var(--text-faint); cursor:pointer; letter-spacing:.06em; transition:all .25s; }
+.nav-btn:hover { border-color:var(--plum-light); color:var(--plum-glow); }
+.nav-btn.active { background:var(--plum); border-color:var(--plum); color:var(--text); }
+.phone {
+  width:375px; min-height:812px; background:var(--void); border-radius:52px;
+  position:relative; display:flex; flex-direction:column; overflow:hidden;
+  box-shadow:0 0 0 1px rgba(123,79,166,.3),0 0 0 10px #0A0812,0 0 0 11px rgba(123,79,166,.15),0 60px 120px rgba(0,0,0,.8),0 0 80px rgba(123,79,166,.1),inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.phone::after { content:''; position:absolute; top:-40px; left:50%; transform:translateX(-50%); width:200px; height:120px; background:radial-gradient(ellipse,rgba(123,79,166,.4) 0%,transparent 70%); pointer-events:none; z-index:0; }
+.notch { width:126px; height:36px; background:#000; border-radius:0 0 22px 22px; position:absolute; top:0; left:50%; transform:translateX(-50%); z-index:10; }
+.status-bar { display:flex; justify-content:space-between; align-items:center; padding:14px 28px 0; height:48px; position:relative; z-index:5; }
+.status-time { font-size:15px; font-weight:500; color:var(--text); letter-spacing:-.01em; }
+.status-icons { display:flex; gap:5px; align-items:center; }
+.status-icons span { font-size:11px; color:var(--text-soft); }
+.screen { display:none; flex:1; flex-direction:column; position:relative; z-index:1; }
+.screen.active { display:flex; animation:screenIn .4s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes screenIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.bottom-nav { display:flex; justify-content:space-around; padding:14px 20px 30px; border-top:1px solid var(--text-ghost); background:linear-gradient(to top,var(--void),rgba(13,10,18,.95)); margin-top:auto; position:relative; z-index:5; }
+.bnav-item { display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; opacity:.35; transition:opacity .2s; }
+.bnav-item.active { opacity:1; }
+.bnav-icon { font-size:20px; }
+.bnav-label { font-size:10px; font-weight:500; color:var(--text-soft); letter-spacing:.06em; }
+/* HOME */
+.home-top { padding:20px 28px 0; position:relative; }
+.home-arc { position:absolute; top:-60px; right:-60px; width:240px; height:240px; border-radius:50%; border:1px solid rgba(123,79,166,.2); pointer-events:none; }
+.home-arc::after { content:''; position:absolute; inset:20px; border-radius:50%; border:1px solid rgba(196,112,138,.1); }
+.home-eyebrow { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--plum-glow); margin-bottom:8px; font-weight:400; }
+.home-headline { font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; font-style:italic; color:var(--text); line-height:1.05; letter-spacing:-.01em; margin-bottom:22px; }
+.home-headline strong { font-weight:600; font-style:normal; background:linear-gradient(135deg,var(--plum-glow),var(--rose-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.pill-row { display:flex; gap:8px; margin-bottom:28px; }
+.pill { display:flex; align-items:center; gap:6px; background:var(--surface2); border:1px solid var(--rim); border-radius:100px; padding:7px 14px; font-size:12px; color:var(--text-soft); }
+.pill-dot { width:6px; height:6px; border-radius:50%; background:var(--plum-light); }
+.pill-dot.rose { background:var(--rose); }
+.sec-label { font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--text-faint); padding:0 28px 12px; font-weight:500; }
+.cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0 28px; }
+.cat-tile { border-radius:20px; padding:16px 15px 14px; cursor:pointer; border:1px solid transparent; position:relative; overflow:hidden; transition:transform .18s; background:var(--surface); }
+.cat-tile:hover { transform:scale(.96); }
+.cat-tile.warmup { border-color:rgba(139,184,138,.25); }
+.cat-tile.connect { border-color:rgba(122,158,196,.25); }
+.cat-tile.depth { border-color:rgba(155,110,200,.35); }
+.cat-tile.physical { border-color:rgba(196,112,138,.3); }
+.cat-tile.challenge { border-color:rgba(200,169,110,.25); }
+.cat-tile.spicy { border-color:rgba(232,160,184,.3); }
+.cat-emoji { font-size:20px; margin-bottom:8px; display:block; }
+.cat-name { font-size:13px; font-weight:500; color:var(--text); margin-bottom:2px; display:block; }
+.cat-meta { font-size:10px; color:var(--text-faint); margin-bottom:10px; display:block; }
+.cat-bar { height:2px; background:var(--surface3); border-radius:100px; overflow:hidden; }
+.cat-bar-fill { height:100%; border-radius:100px; }
+.warmup .cat-bar-fill{background:var(--c-warmup);width:43%}
+.connect .cat-bar-fill{background:var(--c-connect);width:18%}
+.depth .cat-bar-fill{background:var(--c-depth);width:5%}
+.physical .cat-bar-fill{background:var(--c-physical);width:60%}
+.challenge .cat-bar-fill{background:var(--c-challenge);width:30%}
+.spicy .cat-bar-fill{background:var(--c-spicy);width:10%}
+/* CATEGORY */
+.cat-detail-back { display:flex; align-items:center; gap:10px; padding:16px 24px 0; }
+.back-btn { width:34px; height:34px; border-radius:50%; border:1px solid var(--rim); background:var(--surface); color:var(--text-soft); font-size:15px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:border-color .2s; }
+.back-btn:hover { border-color:var(--plum-light); }
+.back-crumb { font-size:12px; color:var(--text-faint); letter-spacing:.05em; }
+.cat-detail-body { padding:28px 28px 0; flex:1; }
+.cat-detail-emoji { font-size:44px; display:block; margin-bottom:14px; }
+.cat-detail-name { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; font-style:italic; color:var(--text); margin-bottom:4px; letter-spacing:-.01em; }
+.cat-detail-desc { font-size:13px; color:var(--text-soft); line-height:1.65; margin-bottom:24px; font-weight:300; }
+.progress-block { background:var(--surface); border:1px solid var(--rim); border-radius:16px; padding:18px; margin-bottom:20px; }
+.progress-top { display:flex; justify-content:space-between; font-size:12px; color:var(--text-soft); margin-bottom:12px; }
+.progress-track { height:3px; background:var(--surface3); border-radius:100px; overflow:hidden; margin-bottom:8px; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--plum),var(--plum-glow)); border-radius:100px; width:5%; }
+.progress-sub { font-size:10px; color:var(--text-faint); letter-spacing:.04em; }
+.draw-btn { width:100%; padding:17px; border-radius:16px; background:linear-gradient(135deg,var(--plum) 0%,#9B50C8 100%); border:none; font-family:'Jost',sans-serif; font-size:15px; font-weight:500; color:white; cursor:pointer; letter-spacing:.04em; box-shadow:0 8px 32px rgba(123,79,166,.4),0 2px 8px rgba(0,0,0,.3); transition:opacity .15s,transform .15s; }
+.draw-btn:hover { opacity:.9; transform:translateY(-1px); }
+/* CARD */
+.card-screen-header { display:flex; align-items:center; padding:14px 24px; gap:12px; }
+.card-screen-meta { flex:1; }
+.card-screen-cat { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--plum-glow); margin-bottom:2px; font-weight:500; }
+.card-screen-count { font-size:13px; color:var(--text-soft); }
+.card-stage { flex:1; display:flex; align-items:center; justify-content:center; padding:0 24px; perspective:1200px; }
+.card { width:100%; max-width:316px; aspect-ratio:2.8/4; position:relative; cursor:pointer; transform-style:preserve-3d; transition:transform .65s cubic-bezier(.4,0,.2,1); filter:drop-shadow(0 24px 48px rgba(0,0,0,.6)) drop-shadow(0 0 40px rgba(123,79,166,.2)); }
+.card.flipped { transform:rotateY(180deg); }
+.card-side { position:absolute; inset:0; border-radius:24px; backface-visibility:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.card-front { background:var(--surface); border:1px solid var(--rim2); overflow:hidden; }
+.card-front::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(123,79,166,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(123,79,166,.06) 1px,transparent 1px); background-size:28px 28px; border-radius:24px; }
+.card-front::after { content:''; position:absolute; top:20%; left:50%; transform:translateX(-50%); width:140px; height:140px; background:radial-gradient(ellipse,rgba(123,79,166,.35) 0%,transparent 70%); pointer-events:none; }
+.card-front-wordmark { font-family:'Cormorant Garamond',serif; font-size:32px; font-style:italic; font-weight:300; color:var(--text); letter-spacing:.05em; position:relative; z-index:1; margin-bottom:6px; }
+.card-front-cat { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--plum-glow); position:relative; z-index:1; margin-bottom:28px; font-weight:400; }
+.card-front-hint { position:absolute; bottom:22px; font-size:10px; color:var(--text-ghost); letter-spacing:.1em; text-transform:uppercase; }
+.card-ornament { position:absolute; top:18px; right:18px; width:22px; height:22px; border-top:1px solid var(--rim2); border-right:1px solid var(--rim2); border-radius:0 4px 0 0; }
+.card-ornament.bl { top:auto; right:auto; bottom:18px; left:18px; border-top:none; border-right:none; border-bottom:1px solid var(--rim2); border-left:1px solid var(--rim2); border-radius:0 0 0 4px; }
+.card-back { background:linear-gradient(160deg,var(--surface2) 0%,var(--surface) 100%); border:1px solid var(--rim2); transform:rotateY(180deg); text-align:center; padding:36px 28px; overflow:hidden; }
+.card-back::before { content:''; position:absolute; top:-30px; left:50%; transform:translateX(-50%); width:160px; height:120px; background:radial-gradient(ellipse,rgba(123,79,166,.2) 0%,transparent 70%); }
+.card-back-cat { font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--plum-glow); margin-bottom:22px; font-weight:500; position:relative; z-index:1; }
+.card-back-text { font-family:'Cormorant Garamond',serif; font-size:21px; font-style:italic; font-weight:300; color:var(--text); line-height:1.5; position:relative; z-index:1; }
+.card-tap-hint { text-align:center; font-size:11px; color:var(--text-faint); padding:12px 24px 4px; letter-spacing:.08em; }
+.card-actions { display:flex; gap:10px; padding:16px 24px; }
+.c-btn { flex:1; padding:14px; border-radius:14px; font-family:'Jost',sans-serif; font-size:13px; font-weight:400; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:7px; transition:all .18s; letter-spacing:.04em; }
+.c-btn.ghost { background:var(--surface); border:1px solid var(--rim); color:var(--text-soft); }
+.c-btn.primary { background:linear-gradient(135deg,var(--plum),#9B50C8); border:none; color:white; box-shadow:0 6px 24px rgba(123,79,166,.35); }
+.c-btn.primary:hover { opacity:.9; transform:translateY(-1px); }
+/* STATS */
+.stats-top { padding:24px 28px 0; }
+.stats-headline { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; font-style:italic; color:var(--text); letter-spacing:-.01em; margin-bottom:4px; }
+.stats-sub { font-size:12px; color:var(--text-faint); letter-spacing:.04em; }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:20px 28px 0; }
+.stat-card { background:var(--surface); border:1px solid var(--rim); border-radius:18px; padding:16px 14px; position:relative; overflow:hidden; }
+.stat-card::before { content:''; position:absolute; top:0; right:0; width:60px; height:60px; background:radial-gradient(ellipse at top right,rgba(123,79,166,.12),transparent 70%); }
+.stat-icon { font-size:18px; display:block; margin-bottom:8px; }
+.stat-value { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:300; color:var(--text); letter-spacing:-.03em; line-height:1; margin-bottom:4px; }
+.stat-label { font-size:11px; color:var(--text-faint); }
+.fav-tag { display:inline-flex; align-items:center; gap:6px; background:rgba(123,79,166,.2); border:1px solid rgba(123,79,166,.4); border-radius:100px; padding:5px 12px; font-size:12px; color:var(--plum-glow); margin-top:6px; }
+.breakdown-list { padding:0 28px; display:flex; flex-direction:column; gap:12px; }
+.b-row { display:flex; align-items:center; gap:12px; }
+.b-emoji { font-size:16px; width:22px; text-align:center; }
+.b-info { flex:1; }
+.b-label { display:flex; justify-content:space-between; font-size:12px; color:var(--text-soft); margin-bottom:5px; }
+.b-pct { color:var(--text-faint); font-size:11px; }
+.b-track { height:3px; background:var(--surface3); border-radius:100px; overflow:hidden; }
+.b-fill { height:100%; border-radius:100px; }
+</style>
+</head>
+<body>
+<div class="page-wordmark">Attune</div>
+<p class="page-sub">Interactive mockup v2 · Sensual purple theme</p>
+<div class="nav">
+  <button class="nav-btn active" onclick="show('home')">Home</button>
+  <button class="nav-btn" onclick="show('category')">Category</button>
+  <button class="nav-btn" onclick="show('card')">Card</button>
+  <button class="nav-btn" onclick="show('stats')">Stats</button>
+</div>
+<div class="phone">
+  <div class="notch"></div>
+  <div class="status-bar">
+    <span class="status-time">9:41</span>
+    <div class="status-icons"><span>●●●</span><span>⠿</span><span>▮</span></div>
+  </div>
+  <!-- HOME -->
+  <div class="screen active" id="s-home">
+    <div class="home-top">
+      <div class="home-arc"></div>
+      <div class="home-eyebrow">Good evening</div>
+      <div class="home-headline">Time to<br><strong>connect.</strong></div>
+      <div class="pill-row">
+        <div class="pill"><span class="pill-dot"></span>7 day streak</div>
+        <div class="pill"><span class="pill-dot rose"></span>12 min today</div>
+      </div>
+    </div>
+    <div class="sec-label">Choose a deck</div>
+    <div class="cat-grid">
+      <div class="cat-tile warmup" onclick="show('category')"><span class="cat-emoji">🌱</span><span class="cat-name">Warmup</span><span class="cat-meta">13 of 30 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+      <div class="cat-tile connect" onclick="show('category')"><span class="cat-emoji">💬</span><span class="cat-name">Connection</span><span class="cat-meta">7 of 40 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+      <div class="cat-tile depth" onclick="show('category')"><span class="cat-emoji">🌊</span><span class="cat-name">Depth</span><span class="cat-meta">2 of 40 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+      <div class="cat-tile physical" onclick="show('category')"><span class="cat-emoji">🔥</span><span class="cat-name">Physical</span><span class="cat-meta">18 of 30 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+      <div class="cat-tile challenge" onclick="show('category')"><span class="cat-emoji">🎯</span><span class="cat-name">Challenges</span><span class="cat-meta">9 of 30 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+      <div class="cat-tile spicy" onclick="show('category')"><span class="cat-emoji">💑</span><span class="cat-name">Spicy</span><span class="cat-meta">3 of 30 seen</span><div class="cat-bar"><div class="cat-bar-fill"></div></div></div>
+    </div>
+    <div class="bottom-nav">
+      <div class="bnav-item active"><span class="bnav-icon">⊞</span><span class="bnav-label">Decks</span></div>
+      <div class="bnav-item" onclick="show('stats')"><span class="bnav-icon">◎</span><span class="bnav-label">Journey</span></div>
+    </div>
+  </div>
+  <!-- CATEGORY -->
+  <div class="screen" id="s-category">
+    <div class="cat-detail-back"><div class="back-btn" onclick="show('home')">←</div><span class="back-crumb">Decks</span></div>
+    <div class="cat-detail-body">
+      <span class="cat-detail-emoji">🌊</span>
+      <div class="cat-detail-name">Depth</div>
+      <div class="cat-detail-desc">The questions that go below the surface. Past, values, futures, and the things left unsaid. Best with time, no phones, and something to drink.</div>
+      <div class="progress-block">
+        <div class="progress-top"><span>Progress</span><span>2 of 40 seen</span></div>
+        <div class="progress-track"><div class="progress-fill"></div></div>
+        <div class="progress-sub">38 CARDS REMAINING IN THIS DECK</div>
+      </div>
+      <button class="draw-btn" onclick="show('card')">Draw a card</button>
+    </div>
+    <div class="bottom-nav">
+      <div class="bnav-item" onclick="show('home')"><span class="bnav-icon">⊞</span><span class="bnav-label">Decks</span></div>
+      <div class="bnav-item" onclick="show('stats')"><span class="bnav-icon">◎</span><span class="bnav-label">Journey</span></div>
+    </div>
+  </div>
+  <!-- CARD -->
+  <div class="screen" id="s-card">
+    <div class="card-screen-header">
+      <div class="back-btn" onclick="show('category')">←</div>
+      <div class="card-screen-meta">
+        <div class="card-screen-cat">🌊 Depth</div>
+        <div class="card-screen-count">Card 3 of 40</div>
+      </div>
+    </div>
+    <div class="card-stage">
+      <div class="card" id="the-card" onclick="flipCard()">
+        <div class="card-side card-front">
+          <div class="card-ornament"></div><div class="card-ornament bl"></div>
+          <div class="card-front-wordmark">Attune</div>
+          <div class="card-front-cat">Depth · Question</div>
+          <div class="card-front-hint">Tap to reveal</div>
+        </div>
+        <div class="card-side card-back">
+          <div class="card-ornament"></div><div class="card-ornament bl"></div>
+          <div class="card-back-cat">Depth · Question</div>
+          <div class="card-back-text" id="card-text">"What's something unresolved between us you wish we'd address?"</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-tap-hint" id="tap-hint">Tap card to reveal</div>
+    <div class="card-actions">
+      <button class="c-btn ghost" onclick="nextCard()">Skip</button>
+      <button class="c-btn primary" onclick="nextCard()">Next card →</button>
+    </div>
+    <div class="bottom-nav">
+      <div class="bnav-item" onclick="show('home')"><span class="bnav-icon">⊞</span><span class="bnav-label">Decks</span></div>
+      <div class="bnav-item" onclick="show('stats')"><span class="bnav-icon">◎</span><span class="bnav-label">Journey</span></div>
+    </div>
+  </div>
+  <!-- STATS -->
+  <div class="screen" id="s-stats">
+    <div class="stats-top">
+      <div class="stats-headline">Your journey</div>
+      <div class="stats-sub">Since you started Attune</div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><span class="stat-icon">🃏</span><div class="stat-value">52</div><div class="stat-label">Cards drawn</div></div>
+      <div class="stat-card"><span class="stat-icon">🔥</span><div class="stat-value">7</div><div class="stat-label">Day streak</div></div>
+      <div class="stat-card"><span class="stat-icon">📅</span><div class="stat-value">14</div><div class="stat-label">Sessions</div></div>
+      <div class="stat-card"><span class="stat-icon">❤️</span><div class="fav-tag">🔥 Physical</div><div class="stat-label" style="margin-top:8px">Favourite deck</div></div>
+    </div>
+    <div class="sec-label" style="padding-top:18px">Deck progress</div>
+    <div class="breakdown-list">
+      <div class="b-row"><span class="b-emoji">🌱</span><div class="b-info"><div class="b-label"><span>Warmup</span><span class="b-pct">43%</span></div><div class="b-track"><div class="b-fill" style="width:43%;background:var(--c-warmup)"></div></div></div></div>
+      <div class="b-row"><span class="b-emoji">💬</span><div class="b-info"><div class="b-label"><span>Connection</span><span class="b-pct">18%</span></div><div class="b-track"><div class="b-fill" style="width:18%;background:var(--c-connect)"></div></div></div></div>
+      <div class="b-row"><span class="b-emoji">🌊</span><div class="b-info"><div class="b-label"><span>Depth</span><span class="b-pct">5%</span></div><div class="b-track"><div class="b-fill" style="width:5%;background:var(--c-depth)"></div></div></div></div>
+      <div class="b-row"><span class="b-emoji">🔥</span><div class="b-info"><div class="b-label"><span>Physical</span><span class="b-pct">60%</span></div><div class="b-track"><div class="b-fill" style="width:60%;background:var(--c-physical)"></div></div></div></div>
+      <div class="b-row"><span class="b-emoji">🎯</span><div class="b-info"><div class="b-label"><span>Challenges</span><span class="b-pct">30%</span></div><div class="b-track"><div class="b-fill" style="width:30%;background:var(--c-challenge)"></div></div></div></div>
+      <div class="b-row"><span class="b-emoji">💑</span><div class="b-info"><div class="b-label"><span>Spicy</span><span class="b-pct">10%</span></div><div class="b-track"><div class="b-fill" style="width:10%;background:var(--c-spicy)"></div></div></div></div>
+    </div>
+    <div class="bottom-nav">
+      <div class="bnav-item" onclick="show('home')"><span class="bnav-icon">⊞</span><span class="bnav-label">Decks</span></div>
+      <div class="bnav-item active"><span class="bnav-icon">◎</span><span class="bnav-label">Journey</span></div>
+    </div>
+  </div>
+</div>
+<script>
+const screens={home:'s-home',category:'s-category',card:'s-card',stats:'s-stats'};
+const navMap={home:0,category:1,card:2,stats:3};
+function show(id){
+  Object.values(screens).forEach(s=>{document.getElementById(s).classList.remove('active')});
+  document.getElementById(screens[id]).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach((b,i)=>b.classList.toggle('active',i===navMap[id]));
+  if(id==='card'){document.getElementById('the-card').classList.remove('flipped');document.getElementById('tap-hint').textContent='Tap card to reveal';flipped=false;}
+}
+const prompts=["What's something unresolved between us you wish we'd address?","What does emotional safety feel like to you?","When do you feel most like yourself?","What's a fear about our future you rarely voice?","Is there something you've been pretending is okay that isn't?"];
+let idx=0,flipped=false;
+function flipCard(){const c=document.getElementById('the-card');flipped=!flipped;c.classList.toggle('flipped',flipped);document.getElementById('tap-hint').textContent=flipped?'Discuss, then tap Next card':'Tap card to reveal';}
+function nextCard(){const c=document.getElementById('the-card');idx=(idx+1)%prompts.length;flipped=false;c.classList.remove('flipped');document.getElementById('card-text').textContent='"'+prompts[idx]+'"';document.getElementById('tap-hint').textContent='Tap card to reveal';c.style.transition='none';c.style.transform='scale(0.9) translateY(6px)';requestAnimationFrame(()=>{c.style.transition='transform .35s cubic-bezier(.34,1.56,.64,1)';c.style.transform='';});}
+</script>
+</body>
+</html>

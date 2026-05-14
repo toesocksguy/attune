@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="2796" viewBox="0 0 1290 2796" role="img" aria-label="Attune twin circles splash screen">
+  <defs>
+    <radialGradient id="topGlow" cx="50%" cy="38%" r="42%">
+      <stop offset="0" stop-color="#7B4FA6" stop-opacity="0.28"/>
+      <stop offset="0.48" stop-color="#1C1528" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#0D0A12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="roseGlow" cx="64%" cy="44%" r="30%">
+      <stop offset="0" stop-color="#C4708A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#C4708A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.77 0 0 0 0 0.60 0 0 0 0 0.91 0 0 0 0.12 0"/>
+    </filter>
+  </defs>
+  <rect width="1290" height="2796" fill="#0D0A12"/>
+  <rect width="1290" height="2796" fill="url(#topGlow)"/>
+  <rect width="1290" height="2796" fill="url(#roseGlow)"/>
+  <g transform="translate(645 1118)" filter="url(#softGlow)" fill="none" stroke="#C49AE8" stroke-linecap="round">
+    <circle cx="-54" cy="0" r="126" stroke-width="5" opacity="0.84"/>
+    <circle cx="54" cy="0" r="126" stroke-width="5" opacity="0.84"/>
+    <circle cx="0" cy="0" r="3" fill="#F0EAF8" stroke="none" opacity="0.86"/>
+  </g>
+  <text x="645" y="1346" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-weight="300" font-size="92" fill="#F0EAF8" letter-spacing="1">Attune</text>
+  <line x1="600" y1="1414" x2="690" y2="1414" stroke="#524569" stroke-width="2"/>
+  <text x="645" y="1482" text-anchor="middle" font-family="Jost, Avenir Next, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="8" fill="#7A6A90">A COUPLES CARD DECK</text>
+  <rect width="1290" height="2796" filter="url(#grain)" opacity="0.45"/>
+</svg>

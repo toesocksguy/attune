@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="432" height="432" viewBox="0 0 432 432">
+  <defs>
+    <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8A0B8"/>
+      <stop offset="0.54" stop-color="#C49AE8"/>
+      <stop offset="1" stop-color="#7B4FA6"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#E8A0B8" stop-opacity="0.46"/>
+      <stop offset="0.34" stop-color="#C49AE8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#C49AE8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="flameAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#E8A0B8" stop-opacity="0.44"/>
+      <stop offset="0.42" stop-color="#C49AE8" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#7B4FA6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="216" cy="216" r="116" fill="url(#centerGlow)"/>
+  <g fill="none" stroke="#C49AE8" stroke-linecap="round" opacity="0.72">
+    <circle cx="176" cy="216" r="90" stroke-width="4"/>
+    <circle cx="256" cy="216" r="90" stroke-width="4"/>
+  </g>
+  <ellipse id="flame-aura" cx="216" cy="232" rx="72" ry="98" fill="url(#flameAura)"/>
+  <!-- Edit these two paths to tweak the flame shape. Keep path data matched with icon-source.svg and splash-source.svg. -->
+  <g id="flame-mark" transform="translate(216 216) scale(1.88) translate(-21 -36)">
+    <path id="flame-outer" d="M21 4 C 31 18 36 31 36 43 C 36 55 30 62 21 62 C 12 62 6 55 6 43 C 6 32 13 23 18 14 C 18 22 16 29 21 34 C 25 26 19 15 21 4 Z" fill="url(#flameGrad)" opacity="0.92"/>
+    <path id="flame-inner" d="M21 23 C 26 31 29 38 28 45 C 27 52 24 56 21 56 C 18 56 15 52 14 45 C 13 38 16 31 21 23 Z" fill="#F0EAF8" opacity="0.48"/>
+  </g>
+</svg>

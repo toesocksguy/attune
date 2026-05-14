@@ -1,0 +1,44 @@
+# Node / Expo
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Native build
+ios/Pods/
+ios/build/
+android/build/
+android/app/build/
+android/.gradle/
+*.keystore
+!debug.keystore
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Emacs
+*~
+\#*\#
+.\#*
+*.elc
+auto-save-list/
+tramp
+.projectile
+.org-id-locations
+
+# Claude Code (local-only)
+.claude/settings.local.json
+.claude/cache/

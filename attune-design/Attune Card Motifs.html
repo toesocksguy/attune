@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attune — Card front motifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: #050309;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(123,79,166,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 90% 95%, rgba(196,112,138,0.10) 0%, transparent 60%);
+    font-family: 'Jost', sans-serif;
+    color: #F0EAF8;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<div id="root" style="width:100vw;height:100vh;"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+const TINT_RGB = '123,79,166';
+const TINT_GLOW = `rgba(${TINT_RGB}, 0.35)`;
+
+function CardBracket({ corner }) {
+  const c = '#524569', t = 1, s = 22;
+  const pos = {
+    tl: { top: 14, left: 14, borderTop: `${t}px solid ${c}`, borderLeft: `${t}px solid ${c}` },
+    tr: { top: 14, right: 14, borderTop: `${t}px solid ${c}`, borderRight: `${t}px solid ${c}` },
+    bl: { bottom: 14, left: 14, borderBottom: `${t}px solid ${c}`, borderLeft: `${t}px solid ${c}` },
+    br: { bottom: 14, right: 14, borderBottom: `${t}px solid ${c}`, borderRight: `${t}px solid ${c}` },
+  };
+  return <div style={{ position: 'absolute', width: s, height: s, ...pos[corner] }} />;
+}
+
+function GridTexture() {
+  return (
+    <div style={{
+      position: 'absolute', inset: 0, pointerEvents: 'none',
+      backgroundImage:
+        'linear-gradient(rgba(196,154,232,1) 1px, transparent 1px),' +
+        'linear-gradient(90deg, rgba(196,154,232,1) 1px, transparent 1px)',
+      backgroundSize: '26px 26px', opacity: 0.06,
+    }} />
+  );
+}
+
+function GrainOverlay() {
+  return (
+    <div style={{
+      position: 'absolute', inset: 0, pointerEvents: 'none',
+      opacity: 0.2, mixBlendMode: 'overlay',
+      backgroundImage: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'180\' height=\'180\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'2\' stitchTiles=\'stitch\' seed=\'7\'/><feColorMatrix values=\'0 0 0 0 0.77   0 0 0 0 0.60   0 0 0 0 0.91   0 0 0 0.55 0\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23n)\'/></svg>")',
+      backgroundSize: '180px 180px',
+    }} />
+  );
+}
+
+function Motif({ kind }) {
+  if (kind === 'monogram') return (
+    <div style={{
+      fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontWeight: 300,
+      fontSize: 86, color: '#F0EAF8', lineHeight: 0.9, letterSpacing: '-0.02em',
+      marginBottom: 8, textShadow: `0 0 24px ${TINT_GLOW}`,
+    }}>A</div>
+  );
+  if (kind === 'ampersand') return (
+    <div style={{
+      fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontWeight: 400,
+      fontSize: 100, color: '#F0EAF8', lineHeight: 0.85, letterSpacing: '-0.02em',
+      marginBottom: 10, textShadow: `0 0 28px ${TINT_GLOW}`,
+    }}>&amp;</div>
+  );
+  if (kind === 'vesica') return (
+    <svg width="92" height="68" viewBox="0 0 78 58" style={{ marginBottom: 14, filter: `drop-shadow(0 0 12px ${TINT_GLOW})` }}>
+      <circle cx="30" cy="29" r="22" fill="none" stroke="#C49AE8" strokeWidth="0.9" opacity="0.85" />
+      <circle cx="48" cy="29" r="22" fill="none" stroke="#C49AE8" strokeWidth="0.9" opacity="0.85" />
+      <circle cx="39" cy="29" r="1.4" fill="#C49AE8" />
+    </svg>
+  );
+  if (kind === 'moon') return (
+    <svg width="72" height="72" viewBox="0 0 60 60" style={{ marginBottom: 14, filter: `drop-shadow(0 0 14px ${TINT_GLOW})` }}>
+      <defs>
+        <mask id="moonCutGallery">
+          <rect width="60" height="60" fill="white" />
+          <circle cx="40" cy="26" r="20" fill="black" />
+        </mask>
+      </defs>
+      <circle cx="30" cy="30" r="22" fill="#F0EAF8" opacity="0.95" mask="url(#moonCutGallery)" />
+      <circle cx="12" cy="14" r="1.2" fill="#C49AE8" />
+      <circle cx="8" cy="36" r="0.8" fill="#C49AE8" opacity="0.7" />
+      <circle cx="17" cy="50" r="0.6" fill="#C49AE8" opacity="0.5" />
+    </svg>
+  );
+  if (kind === 'flame') return (
+    <svg width="48" height="76" viewBox="0 0 42 66" style={{ marginBottom: 12, filter: `drop-shadow(0 0 18px ${TINT_GLOW})` }}>
+      <defs>
+        <linearGradient id={`fg-${kind}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#E8A0B8" />
+          <stop offset="0.55" stopColor="#C49AE8" />
+          <stop offset="1" stopColor="#7B4FA6" />
+        </linearGradient>
+      </defs>
+      <path d="M21 4 C 30 18, 36 28, 36 42 C 36 54, 29 62, 21 62 C 13 62, 6 54, 6 42 C 6 32, 12 26, 16 18 C 18 22, 17 28, 21 30 C 22 22, 19 14, 21 4 Z" fill={`url(#fg-${kind})`} opacity="0.92" />
+      <path d="M21 18 C 25 24, 28 32, 27 40 C 26 46, 23 50, 21 50 C 19 50, 16 46, 16 40 C 16 32, 19 26, 21 18 Z" fill="#F0EAF8" opacity="0.55" />
+    </svg>
+  );
+  if (kind === 'seal') return (
+    <svg width="78" height="78" viewBox="0 0 68 68" style={{ marginBottom: 14, filter: `drop-shadow(0 0 14px ${TINT_GLOW})` }}>
+      <circle cx="34" cy="34" r="30" fill="none" stroke="#C49AE8" strokeWidth="0.8" opacity="0.7" />
+      <circle cx="34" cy="34" r="26" fill="none" stroke="#C49AE8" strokeWidth="0.4" opacity="0.5" strokeDasharray="1 3" />
+      <text x="34" y="46" textAnchor="middle"
+        fontFamily='"Cormorant Garamond", serif' fontStyle="italic" fontWeight="300"
+        fontSize="36" fill="#F0EAF8">A</text>
+    </svg>
+  );
+  if (kind === 'compass') return (
+    <svg width="68" height="68" viewBox="0 0 58 58" style={{ marginBottom: 14, filter: `drop-shadow(0 0 12px ${TINT_GLOW})` }}>
+      <circle cx="29" cy="29" r="22" fill="none" stroke="#C49AE8" strokeWidth="0.8" opacity="0.55" />
+      <circle cx="29" cy="29" r="14" fill="none" stroke="#C49AE8" strokeWidth="0.8" opacity="0.4" />
+      <line x1="29" y1="2" x2="29" y2="56" stroke="#C49AE8" strokeWidth="0.4" opacity="0.3" />
+      <line x1="2" y1="29" x2="56" y2="29" stroke="#C49AE8" strokeWidth="0.4" opacity="0.3" />
+      <circle cx="29" cy="29" r="2" fill="#C49AE8" />
+    </svg>
+  );
+  return <div style={{ height: 70 }} />; /* void */
+}
+
+function CardFront({ motif }) {
+  return (
+    <div style={{
+      position: 'relative', width: 300, height: 428, borderRadius: 22,
+      background: '#1C1528', border: '1px solid #524569', overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      boxShadow: `0 28px 56px rgba(0,0,0,0.65), 0 0 50px ${TINT_GLOW}`,
+    }}>
+      <GridTexture />
+      <div style={{
+        position: 'absolute', top: '28%', left: '50%',
+        transform: 'translate(-50%,-50%)', width: 200, height: 200,
+        background: `radial-gradient(ellipse, ${TINT_GLOW} 0%, transparent 70%)`,
+        pointerEvents: 'none',
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%)',
+      }} />
+      <GrainOverlay />
+
+      <CardBracket corner="tl" />
+      <CardBracket corner="tr" />
+      <CardBracket corner="bl" />
+      <CardBracket corner="br" />
+
+      <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', marginTop: -10 }}>
+        <Motif kind={motif} />
+        <div style={{
+          fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontWeight: 300,
+          fontSize: 28, color: '#F0EAF8', letterSpacing: '0.04em',
+        }}>Attune</div>
+        <div style={{ width: 24, height: 1, background: '#524569', margin: '12px auto' }} />
+        <span style={{
+          fontFamily: 'Jost, sans-serif', fontSize: 9, fontWeight: 500,
+          letterSpacing: '0.32em', textTransform: 'uppercase', color: '#C49AE8',
+        }}>III · Depth</span>
+      </div>
+
+      <div style={{
+        position: 'absolute', bottom: 28, left: 0, right: 0,
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+      }}>
+        <div style={{
+          width: 4, height: 4, borderRadius: '50%', background: '#C49AE8',
+          boxShadow: `0 0 8px ${TINT_GLOW}`,
+        }} />
+        <span style={{
+          fontFamily: 'Jost, sans-serif', fontSize: 9, fontWeight: 500,
+          letterSpacing: '0.28em', textTransform: 'uppercase', color: '#7A6A90',
+        }}>Tap to reveal</span>
+      </div>
+    </div>
+  );
+}
+
+const MOTIFS = [
+  { id: 'ampersand', label: 'Ampersand · two as one' },
+  { id: 'monogram',  label: 'Monogram · italic A' },
+  { id: 'vesica',    label: 'Vesica · sacred geometry' },
+  { id: 'moon',      label: 'Moon · candlelit night' },
+  { id: 'flame',     label: 'Flame · the literal candle' },
+  { id: 'seal',      label: 'Seal · wax letter' },
+  { id: 'compass',   label: 'Compass · existing glyph' },
+  { id: 'void',      label: 'Void · restraint' },
+];
+
+function App() {
+  return (
+    <DesignCanvas background="#050309">
+      <DCSection id="motifs" title="Card front motifs"
+        subtitle="Eight glyphs for the centre of the card. Drag to reorder · double-click any card to focus.">
+        {MOTIFS.map(m => (
+          <DCArtboard key={m.id} id={m.id} label={m.label} width={340} height={460}>
+            <div style={{
+              width: '100%', height: '100%', display: 'flex',
+              alignItems: 'center', justifyContent: 'center',
+              background: '#0D0A12',
+            }}>
+              <CardFront motif={m.id} />
+            </div>
+          </DCArtboard>
+        ))}
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

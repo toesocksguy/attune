@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1290" height="2796" viewBox="0 0 1290 2796" role="img" aria-label="Attune flame inside rings splash screen">
+  <defs>
+    <radialGradient id="topGlow" cx="50%" cy="38%" r="42%">
+      <stop offset="0" stop-color="#7B4FA6" stop-opacity="0.28"/>
+      <stop offset="0.48" stop-color="#1C1528" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#0D0A12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="roseGlow" cx="64%" cy="44%" r="30%">
+      <stop offset="0" stop-color="#C4708A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#C4708A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8A0B8"/>
+      <stop offset="0.54" stop-color="#C49AE8"/>
+      <stop offset="1" stop-color="#7B4FA6"/>
+    </linearGradient>
+    <radialGradient id="flameAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#E8A0B8" stop-opacity="0.4"/>
+      <stop offset="0.42" stop-color="#C49AE8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7B4FA6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+      <feColorMatrix values="0 0 0 0 0.77 0 0 0 0 0.60 0 0 0 0 0.91 0 0 0 0.12 0"/>
+    </filter>
+  </defs>
+  <rect width="1290" height="2796" fill="#0D0A12"/>
+  <rect width="1290" height="2796" fill="url(#topGlow)"/>
+  <rect width="1290" height="2796" fill="url(#roseGlow)"/>
+  <g transform="translate(645 1118)" fill="none" stroke="#C49AE8" stroke-linecap="round" opacity="0.72">
+    <circle cx="-54" cy="0" r="130" stroke-width="5"/>
+    <circle cx="54" cy="0" r="130" stroke-width="5"/>
+  </g>
+  <ellipse id="flame-aura" cx="645" cy="1146" rx="130" ry="176" fill="url(#flameAura)"/>
+  <!-- Edit these two paths to tweak the flame shape. Keep path data matched with icon-source.svg and adaptive-foreground.svg. -->
+  <g id="flame-mark" transform="translate(645 1118) scale(3.35) translate(-21 -36)">
+    <path id="flame-outer" d="M21 4 C 31 18 36 31 36 43 C 36 55 30 62 21 62 C 12 62 6 55 6 43 C 6 32 13 23 18 14 C 18 22 16 29 21 34 C 25 26 19 15 21 4 Z" fill="url(#flameGrad)" opacity="0.92"/>
+    <path id="flame-inner" d="M21 23 C 26 31 29 38 28 45 C 27 52 24 56 21 56 C 18 56 15 52 14 45 C 13 38 16 31 21 23 Z" fill="#F0EAF8" opacity="0.48"/>
+  </g>
+  <text x="645" y="1406" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-weight="300" font-size="92" fill="#F0EAF8" letter-spacing="1">Attune</text>
+  <line x1="600" y1="1474" x2="690" y2="1474" stroke="#524569" stroke-width="2"/>
+  <text x="645" y="1542" text-anchor="middle" font-family="Jost, Avenir Next, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="8" fill="#7A6A90">A COUPLES CARD DECK</text>
+  <rect width="1290" height="2796" filter="url(#grain)" opacity="0.45"/>
+</svg>
