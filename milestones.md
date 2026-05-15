@@ -32,7 +32,7 @@ Goal: create the real Expo/React Native app structure that will replace the brow
 - [ ] Enable TypeScript strict mode
 - [ ] Add Expo Router file structure
 - [ ] Add base app tabs: Decks and Journey
-- [ ] Add app config, EAS config, and MIT license
+- [ ] Add app config, EAS config, and GPL-3.0 license
 - [ ] Install required dependencies: AsyncStorage, Reanimated, expo-font, icons
 
 Acceptance criteria:
@@ -173,7 +173,7 @@ Goal: prepare Attune for public open-source release and app store submission.
 
 - [ ] Initialize git repository when ready
 - [ ] Publish GitHub repository
-- [ ] Confirm MIT license
+- [ ] Confirm GPL-3.0 license
 - [ ] Verify app name availability
 - [ ] Configure app icons and splash assets
 - [ ] Configure EAS builds

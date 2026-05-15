@@ -42,3 +42,7 @@ tramp
 # Claude Code (local-only)
 .claude/settings.local.json
 .claude/cache/
+
+# Other AI CLI scratch dirs
+.agents/
+.codex/

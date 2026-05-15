@@ -15,7 +15,7 @@ V1 includes:
 - Local stats, sessions, streaks, category progress, and persistent deck order
 - First-launch age gate, Spicy visibility control, privacy copy, content note, and store rating metadata
 - Dark typographic design system from `designsystem.md`
-- Public open-source release with MIT license
+- Public open-source release with GPL-3.0 license
 
 V1 excludes:
 
@@ -23,7 +23,7 @@ V1 excludes:
 - Backend services
 - Analytics and third-party tracking
 - Push notifications
-- Ads, subscriptions, in-app purchases, and monetization
+- Ads, subscriptions, and in-app purchases
 - Custom cards
 - Social sharing
 - V2 insights, badges, and retention metrics

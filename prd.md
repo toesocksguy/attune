@@ -5,7 +5,7 @@
 
 ## 1. Product Overview
 
-Attune is a free, open-source couples card deck app for iOS and Android. It provides a digital version of the science-backed conversation card experience — a private, offline tool for couples to deepen connection through guided questions, shared activities, and intimate prompts.
+Attune is an open-source couples card deck app for iOS and Android — free as a direct APK download from GitHub releases, and a $0.99 one-time purchase on the App Store and Google Play. It provides a digital version of the science-backed conversation card experience — a private, offline tool for couples to deepen connection through guided questions, shared activities, and intimate prompts.
 
 ---
 
@@ -31,7 +31,7 @@ Attune removes friction from meaningful connection. No subscription. No data col
 - iOS and Android via Expo (React Native)
 - Single codebase, cross-platform
 - No backend — fully offline capable
-- MIT licensed, open source
+- GPL-3.0 licensed, open source
 
 ---
 
@@ -45,8 +45,8 @@ Attune removes friction from meaningful connection. No subscription. No data col
 | G2 | Persist stats locally: streak, sessions, cards drawn, category progress |
 | G3 | Polished dark purple UI matching approved design system |
 | G4 | Include age gate, adult-content controls, and privacy copy required for store review |
-| G5 | Publish to App Store and Google Play as free app |
-| G6 | Open source repository on GitHub with MIT license |
+| G5 | Publish to App Store and Google Play as $0.99 one-time purchase; release free APK from GitHub |
+| G6 | Open source repository on GitHub with GPL-3.0 license |
 
 ### Non-Goals — V1
 
@@ -215,7 +215,7 @@ All card text is original — no verbatim reproduction of copyrighted material.
 | Type | Item | Mitigation |
 |------|------|------------|
 | Assumption | Users play together on one device | Design for shared screen — large text, visible from distance |
-| Assumption | No monetisation needed in V1 | MIT license allows future forks to add monetisation |
+| Assumption | $0.99 store price offsets developer account fees without deterring buyers; free APK preserves an accessible path | Direct APK distribution from GitHub releases guarantees a free option; GPL-3.0 permits redistribution (derivatives must remain GPL-3.0) |
 | Risk | App Store rejection for adult content | Age gate on launch, Spicy content toggle, explicit store rating metadata, privacy/content notes |
 | Risk | Name "Attune" taken before submission | Verify in App Store Connect before building |
 | Risk | Deck repeats after restart feel broken | Persist per-category deck order, draw pointer, and cycle count locally |

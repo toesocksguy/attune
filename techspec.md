@@ -15,7 +15,7 @@
 | Fonts | expo-font (Cormorant Garamond, Jost) |
 | Icons | @expo/vector-icons |
 | Build | EAS Build (Expo Application Services) |
-| License | MIT |
+| License | GPL-3.0 |
 
 ---
 
@@ -323,6 +323,23 @@ eas build --platform all    # iOS + Android
 eas submit --platform all   # Submit to stores
 ```
 
+### Distribution
+
+Attune ships through two channels from the same source:
+
+- **App Store / Google Play** — $0.99 one-time purchase, submitted via `eas submit`.
+- **GitHub Releases (APK)** — free sideload, built with `eas build --platform android --profile preview` (signed APK), attached to a tagged release.
+
+Pricing differs by channel; feature set is identical. No in-app purchases on either channel.
+
+```bash
+# Tagged APK release flow
+git tag v1.0.0
+git push origin v1.0.0
+eas build --platform android --profile preview
+gh release create v1.0.0 ./build/attune.apk --notes-file RELEASE_NOTES.md
+```
+
 ### App Store Requirements
 
 - **Apple:** 17+ age rating, developer account ($99/yr)
@@ -335,7 +352,7 @@ eas submit --platform all   # Submit to stores
 ### GitHub Repository
 
 - Public repo: `github.com/[username]/attune`
-- `MIT LICENSE` file in root
+- `GPL-3.0 LICENSE` file in root
 - `README.md` with setup instructions, screenshots, feature list
 - `CONTRIBUTING.md` for open source contributors
 

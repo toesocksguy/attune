@@ -17,7 +17,7 @@
 <workflow>
 - Before implementation work, read the relevant source-of-truth docs listed above.
 - Keep edits scoped to Attune's V1 goals unless the user explicitly asks for V2 exploration.
-- Preserve the local-first privacy model: no accounts, backend, analytics, cloud sync, ads, or purchases in V1.
+- Preserve the local-first privacy model: no accounts, backend, analytics, cloud sync, ads, or in-app purchases in V1. (Store versions are sold as a one-time $0.99 purchase; APK is free from GitHub releases.)
 - Treat `attune-cards.md` as editorial source of truth; generated card data must preserve stable IDs and category totals.
 </workflow>
 
