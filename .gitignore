@@ -46,3 +46,9 @@ tramp
 # Other AI CLI scratch dirs
 .agents/
 .codex/
+
+# Personal dev notes
+notes.org
+
+# Local screenshots
+screenshots/
