@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "generate:cards": "node scripts/generate-cards.mjs"
+    "generate:cards": "node scripts/generate-cards.mjs",
+    "test": "jest"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
@@ -31,8 +32,12 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
+    "@types/jest": "29.5.14",
     "@types/react": "~19.1.0",
     "babel-preset-expo": "^55.0.21",
+    "jest": "~29.7.0",
+    "jest-expo": "~54.0.17",
+    "react-test-renderer": "^19.2.6",
     "typescript": "~5.9.2"
   },
   "private": true
