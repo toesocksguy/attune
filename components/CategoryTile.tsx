@@ -17,12 +17,12 @@ import {
   typeScale,
   type CategorySlug,
 } from '~/theme';
+import { CategoryIcon } from './CategoryIcon';
 import { ProgressBar } from './ProgressBar';
 
 type Props = {
   category: CategorySlug;
   name: string;
-  emoji: string;
   total: number;
   seen: number;
   onPress?: (event: GestureResponderEvent) => void;
@@ -32,7 +32,6 @@ type Props = {
 export function CategoryTile({
   category,
   name,
-  emoji,
   total,
   seen,
   onPress,
@@ -76,7 +75,7 @@ export function CategoryTile({
           disabled && styles.tileDisabled,
         ]}
       >
-        <Text style={styles.emoji}>{emoji}</Text>
+        <CategoryIcon slug={category} size={22} color={accent} strokeWidth={1.1} />
         <Text style={styles.name} numberOfLines={1}>
           {name}
         </Text>
@@ -112,9 +111,6 @@ const styles = StyleSheet.create({
   },
   tileDisabled: {
     opacity: 0.4,
-  },
-  emoji: {
-    fontSize: 22,
   },
   name: {
     ...typeScale.tileName,
