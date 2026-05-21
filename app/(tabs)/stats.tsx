@@ -1,12 +1,14 @@
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CategoryIcon, ProgressBar, StatCard } from '~/components';
 import { CATEGORIES } from '~/data/categories';
 import type { CategorySlug } from '~/data/types';
 import { calcStreak, usePreferences, useStats } from '~/state';
-import { categoryAccent, palette, radius, space, typeScale } from '~/theme';
+import { categoryAccent, minTapTarget, palette, radius, space, typeScale } from '~/theme';
 
 function formatElapsed(ms: number): string {
   const totalSeconds = Math.max(0, Math.floor(ms / 1000));
@@ -18,6 +20,7 @@ function formatElapsed(ms: number): string {
 }
 
 export default function JourneyScreen() {
+  const router = useRouter();
   const { stats } = useStats();
   const { preferences, setShowSpicy } = usePreferences();
   const sessionStartTime = stats.sessionStartTime;
@@ -120,7 +123,31 @@ export default function JourneyScreen() {
               accessibilityLabel="Show Spicy deck"
             />
           </View>
+
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel="Privacy"
+            onPress={() => router.push('/privacy')}
+            style={({ pressed }) => [styles.linkRow, pressed && styles.linkPressed]}
+          >
+            <Text style={styles.settingsTitle}>Privacy</Text>
+            <Ionicons name="chevron-forward" size={18} color={palette.textFaint} />
+          </Pressable>
+
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel="Content note"
+            onPress={() => router.push('/content-note')}
+            style={({ pressed }) => [styles.linkRow, pressed && styles.linkPressed]}
+          >
+            <Text style={styles.settingsTitle}>Content note</Text>
+            <Ionicons name="chevron-forward" size={18} color={palette.textFaint} />
+          </Pressable>
         </View>
+
+        <Text style={styles.footnote}>
+          Everything you see here lives only on this device.{'\n'}Nothing leaves. Nothing watches.
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -199,5 +226,25 @@ const styles = StyleSheet.create({
   settingsHelp: {
     ...typeScale.metaHint,
     color: palette.textFaint,
+  },
+  linkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: palette.surface,
+    borderColor: palette.rim,
+    borderWidth: 1,
+    borderRadius: radius.stat,
+    paddingVertical: space.md,
+    paddingHorizontal: space.md,
+    minHeight: minTapTarget,
+  },
+  linkPressed: { opacity: 0.85 },
+  footnote: {
+    ...typeScale.cardText,
+    color: palette.textGhost,
+    textAlign: 'center',
+    marginTop: space.xl,
+    fontSize: 14,
   },
 });
