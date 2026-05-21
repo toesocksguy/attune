@@ -137,7 +137,7 @@ The real stuff. Past, values, futures, and the things left unsaid. Best with tim
 
 ---
 
-## 🔥 Physical & Intimacy
+## 🔥 Intimacy
 *30 cards · Type: Questions · Level 4*
 
 Honest conversations about closeness and what you need. These aren't dares — they're questions that open doors.
@@ -258,7 +258,7 @@ Romantic dares and intimate moments. Ranges from sweet to steamy — follow your
 | 🌱 Warmup | 30 | Questions |
 | 💬 Connection | 40 | Questions |
 | 🌊 Depth | 40 | Questions |
-| 🔥 Physical & Intimacy | 30 | Questions |
+| 🔥 Intimacy | 30 | Questions |
 | 🎯 Challenges | 30 | Activities |
 | 💑 Spicy | 30 | Dares |
 | **Total** | **200** | |

@@ -24,5 +24,5 @@
 <design>
 - Match the approved dark, intimate, typographic design system rather than introducing a new visual direction.
 - Preserve accessibility requirements: 44pt tap targets, 4.5:1 text contrast, screen reader reachability rules, and reduced-motion fallbacks.
-- Use Attune's existing vocabulary: Decks, Journey, Warmup, Connection, Depth, Physical & Intimacy, Challenges, and Spicy.
+- Use Attune's existing vocabulary: Decks, Journey, Warmup, Connection, Depth, Intimacy, Challenges, and Spicy.
 </design>

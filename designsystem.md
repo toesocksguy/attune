@@ -30,7 +30,7 @@ Attune is built around one feeling: the app should disappear. The couple should 
 | `plum` | `#7B4FA6` | Plum | Primary CTA, key headings |
 | `plumLight` | `#9B6EC8` | Plum Light | Hover states, active dots |
 | `plumGlow` | `#C49AE8` | Plum Glow | Category labels, glow accents |
-| `rose` | `#C4708A` | Rose | Secondary accent, physical category |
+| `rose` | `#C4708A` | Rose | Secondary accent, intimacy category |
 | `roseLight` | `#E8A0B8` | Rose Light | Gradient partner to Plum Glow |
 | `gold` | `#C8A96E` | Gold | Challenges category accent |
 | `text` | `#F0EAF8` | Text | Primary text |
@@ -45,7 +45,7 @@ Attune is built around one feeling: the app should disappear. The couple should 
 | `warmup` | `#8BB88A` | 🌱 Warmup |
 | `connection` | `#7A9EC4` | 💬 Connection |
 | `depth` | `#9B6EC8` | 🌊 Depth |
-| `physical` | `#C4708A` | 🔥 Physical |
+| `intimacy` | `#C4708A` | 🔥 Intimacy |
 | `challenges` | `#C8A96E` | 🎯 Challenges |
 | `spicy` | `#E8A0B8` | 💑 Spicy |
 

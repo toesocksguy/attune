@@ -66,7 +66,7 @@ type CardCategory =
   | 'warmup'
   | 'connection'
   | 'depth'
-  | 'physical'
+  | 'intimacy'
   | 'challenges'
   | 'spicy';
 

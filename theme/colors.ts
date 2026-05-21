@@ -21,7 +21,7 @@ export type CategorySlug =
   | 'warmup'
   | 'connection'
   | 'depth'
-  | 'physical'
+  | 'intimacy'
   | 'challenges'
   | 'spicy';
 
@@ -29,7 +29,7 @@ export const categoryAccent: Record<CategorySlug, string> = {
   warmup: '#8BB88A',
   connection: '#7A9EC4',
   depth: '#9B6EC8',
-  physical: '#C4708A',
+  intimacy: '#C4708A',
   challenges: '#C8A96E',
   spicy: '#E8A0B8',
 };

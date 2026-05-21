@@ -137,7 +137,7 @@ Attune removes friction from meaningful connection. No subscription. No data col
 | 🌱 | Warmup | 30 | Questions | Low-stakes icebreakers, playful openers |
 | 💬 | Connection | 40 | Questions | Progressive self-disclosure, emotional intimacy |
 | 🌊 | Depth | 40 | Questions | Values, conflict, futures, unsaid things |
-| 🔥 | Physical & Intimacy | 30 | Questions | Intimacy conversations, physical connection |
+| 🔥 | Intimacy | 30 | Questions | Intimacy conversations, physical connection |
 | 🎯 | Challenges | 30 | Activities | Things couples do together in the moment |
 | 💑 | Spicy | 30 | Dares | Romantic and intimate dares, 18+ |
 
@@ -148,7 +148,7 @@ Card content is informed by:
 - **Dr. Arthur Aron (1997)** — 36 Questions / reciprocal self-disclosure study. Warmup and Connection decks draw from this framework.
 - **Dr. John & Julie Gottman** — Love Maps, emotional bids, Four Horsemen research. Depth deck structure informed by this work.
 - **Dr. Brené Brown** — vulnerability and emotional intimacy frameworks.
-- **Masters & Johnson** — sensate focus technique informs Physical and Challenges decks.
+- **Masters & Johnson** — sensate focus technique informs Intimacy and Challenges decks.
 
 All card text is original — no verbatim reproduction of copyrighted material.
 

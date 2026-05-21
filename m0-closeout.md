@@ -8,7 +8,7 @@ V1 is ready to move into implementation planning and app scaffolding.
 
 V1 includes:
 
-- 200 cards across Warmup, Connection, Depth, Physical & Intimacy, Challenges, and Spicy
+- 200 cards across Warmup, Connection, Depth, Intimacy, Challenges, and Spicy
 - Offline-only Expo app for iOS and Android
 - Decks and Journey tab navigation
 - Category detail and card draw flows
@@ -31,7 +31,7 @@ V1 excludes:
 ## Implementation Decisions
 
 - Card IDs should be globally unique numeric IDs from 1 to 200 in the order of `attune-cards.md`.
-- Category slug values should be `warmup`, `connection`, `depth`, `physical`, `challenges`, and `spicy`.
+- Category slug values should be `warmup`, `connection`, `depth`, `intimacy`, `challenges`, and `spicy`.
 - `attune-cards.md` remains the editorial source of truth until release; generated `data/cards.ts` should not become the editing source.
 - The first implementation should scaffold the real Expo app at the repo root and keep `attune-design/` as reference prototypes.
 - The Journey tab should own settings-adjacent entry points for V1: privacy/content screen and Spicy visibility toggle.

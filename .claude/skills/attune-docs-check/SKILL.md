@@ -14,6 +14,6 @@ Re-anchor on attune's source-of-truth docs before editing, so changes stay insid
    - Stack / data / architecture → `techspec.md`
    - Visual / motion / accessibility → `designsystem.md`
    - Card copy / IDs / categories → `attune-cards.md`
-2. Note any constraints that bound the requested change: V1 scope, local-first privacy (no accounts, backend, analytics, sync, ads, or IAP), accessibility minima (44pt taps, 4.5:1 contrast, reduced-motion fallbacks), and the existing vocabulary (Decks, Journey, Warmup, Connection, Depth, Physical & Intimacy, Challenges, Spicy).
+2. Note any constraints that bound the requested change: V1 scope, local-first privacy (no accounts, backend, analytics, sync, ads, or IAP), accessibility minima (44pt taps, 4.5:1 contrast, reduced-motion fallbacks), and the existing vocabulary (Decks, Journey, Warmup, Connection, Depth, Intimacy, Challenges, Spicy).
 3. If the requested change conflicts with a constraint, say so before editing and propose a scoped alternative.
 4. Done-and-correct check: every edit traces to a doc-supported decision; card data preserves stable IDs and category totals; no new visual direction introduced.
