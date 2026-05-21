@@ -10,7 +10,7 @@ Planning complete (M0). App scaffolding (M1) not yet started. The `attune-design
 
 ## Stack
 
-Expo SDK 51+, React Native, TypeScript (strict), Expo Router, AsyncStorage, Reanimated 3.
+Expo SDK 54, React Native 0.81, React 19, TypeScript (strict), Expo Router 6, AsyncStorage, Reanimated 4.
 
 ## Documentation
 
@@ -19,6 +19,7 @@ Expo SDK 51+, React Native, TypeScript (strict), Expo Router, AsyncStorage, Rean
 - [`designsystem.md`](designsystem.md) — visual language, motion, accessibility
 - [`attune-cards.md`](attune-cards.md) — editorial source of truth for card copy
 - [`milestones.md`](milestones.md) — roadmap and acceptance criteria
+- [`m0-closeout.md`](m0-closeout.md) — V1 scope decisions locked at end of M0
 - [`CLAUDE.md`](CLAUDE.md) — guidance for AI coding tools working in this repo
 
 ## License

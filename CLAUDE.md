@@ -2,7 +2,7 @@
 
 <about_project>
 - Attune is a free, open-source, offline couples card deck app for iOS and Android.
-- The intended stack is Expo SDK 51+, React Native, TypeScript strict mode, Expo Router, AsyncStorage, and Reanimated 3.
+- The stack is Expo SDK 54, React Native 0.81 (React 19), TypeScript strict mode, Expo Router 6, AsyncStorage, and Reanimated 4.
 - Product truth lives in `prd.md`; technical direction lives in `techspec.md`; visual direction lives in `designsystem.md`; card copy lives in `attune-cards.md`.
 - Current mockups live under `attune-design/` and are React-in-browser HTML prototypes, not the final Expo app.
 </about_project>

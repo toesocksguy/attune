@@ -7,11 +7,11 @@
 
 | Layer | Choice |
 |-------|--------|
-| Framework | Expo SDK 51+ (React Native) |
+| Framework | Expo SDK 54 (React Native 0.81, React 19) |
 | Language | TypeScript (strict mode) |
-| Navigation | Expo Router (file-based) |
+| Navigation | Expo Router 6 (file-based) |
 | Storage | @react-native-async-storage/async-storage |
-| Animation | React Native Reanimated 3 |
+| Animation | React Native Reanimated 4 |
 | Fonts | expo-font (Cormorant Garamond, Jost) |
 | Icons | @expo/vector-icons |
 | Build | EAS Build (Expo Application Services) |
@@ -219,7 +219,7 @@ Use date-only local strings (`YYYY-MM-DD`) for `daysUsed`; do not derive streaks
 
 ### 4.6 Card Flip Animation — `CardFlip.tsx`
 
-Uses React Native Reanimated 3. Two animated values: `flipProgress` (0→1) and `isFlipped` (boolean). Interpolate `rotateY` for front (0→180deg) and back (180→360deg). `backfaceVisibility: hidden` on both faces.
+Uses React Native Reanimated 4. Two animated values: `flipProgress` (0→1) and `isFlipped` (boolean). Interpolate `rotateY` for front (0→180deg) and back (180→360deg). `backfaceVisibility: hidden` on both faces.
 
 When reduced motion is enabled, replace the 3D flip with an opacity crossfade and expose the same accessibility state.
 

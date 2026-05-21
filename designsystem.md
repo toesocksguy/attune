@@ -217,7 +217,7 @@ assets/fonts/
 
 | Property | Value |
 |----------|-------|
-| Library | React Native Reanimated 3 |
+| Library | React Native Reanimated 4 |
 | Duration | 650ms |
 | Easing | `cubic-bezier(0.4, 0, 0.2, 1)` |
 | Front | `rotateY(0deg → 180deg)` |
