@@ -84,19 +84,19 @@ Acceptance criteria:
 
 ## M4 — Local State Core
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: implement local-only persistence for preferences, sessions, streaks, stats, and deck draw order.
 
-- [ ] Build `usePreferences`
-- [ ] Build `useStats`
-- [ ] Build `useSession`
-- [ ] Build `useDeck`
-- [ ] Persist stats under `@attune_stats`
-- [ ] Persist preferences under `@attune_preferences`
-- [ ] Persist deck state under `@attune_decks`
-- [ ] Add streak tests for local dates, month boundaries, year boundaries, and daylight saving transitions
-- [ ] Add deck tests for skip, next, exhaustion, reshuffle, and restart persistence
+- [x] Build `usePreferences`
+- [x] Build `useStats`
+- [x] Build `useSession`
+- [x] Build `useDeck`
+- [x] Persist stats under `@attune_stats`
+- [x] Persist preferences under `@attune_preferences`
+- [x] Persist deck state under `@attune_decks`
+- [x] Add streak tests for local dates, month boundaries, year boundaries, and daylight saving transitions
+- [x] Add deck tests for skip, next, exhaustion, reshuffle, and restart persistence
 
 Acceptance criteria:
 
