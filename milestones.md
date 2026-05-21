@@ -66,15 +66,15 @@ Acceptance criteria:
 
 ## M3 — Card Data Pipeline
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: convert the editorial card deck into typed app data with validation.
 
-- [ ] Define card category and card type models
-- [ ] Convert `attune-cards.md` into `data/cards.ts`
-- [ ] Create `data/categories.ts`
-- [ ] Preserve stable IDs and category totals
-- [ ] Add validation for totals, duplicate IDs, empty text, categories, levels, and types
+- [x] Define card category and card type models
+- [x] Convert `attune-cards.md` into `data/cards.ts`
+- [x] Create `data/categories.ts`
+- [x] Preserve stable IDs and category totals
+- [x] Add validation for totals, duplicate IDs, empty text, categories, levels, and types
 
 Acceptance criteria:
 
