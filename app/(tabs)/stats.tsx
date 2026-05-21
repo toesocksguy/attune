@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CategoryIcon, ProgressBar, StatCard } from '~/components';
 import { CATEGORIES } from '~/data/categories';
 import type { CategorySlug } from '~/data/types';
 import { calcStreak, usePreferences, useStats } from '~/state';
-import { categoryAccent, palette, space, typeScale } from '~/theme';
+import { categoryAccent, palette, radius, space, typeScale } from '~/theme';
 
 function formatElapsed(ms: number): string {
   const totalSeconds = Math.max(0, Math.floor(ms / 1000));
@@ -19,7 +19,7 @@ function formatElapsed(ms: number): string {
 
 export default function JourneyScreen() {
   const { stats } = useStats();
-  const { preferences } = usePreferences();
+  const { preferences, setShowSpicy } = usePreferences();
   const sessionStartTime = stats.sessionStartTime;
   const [elapsedMs, setElapsedMs] = useState(0);
 
@@ -102,6 +102,25 @@ export default function JourneyScreen() {
             );
           })}
         </View>
+
+        <View style={styles.settings}>
+          <Text style={styles.settingsLabel}>Settings</Text>
+          <View style={styles.settingsRow}>
+            <View style={styles.settingsCopy}>
+              <Text style={styles.settingsTitle}>Show Spicy deck</Text>
+              <Text style={styles.settingsHelp}>
+                Romantic and intimate dares. Toggle off to hide from Decks and Journey.
+              </Text>
+            </View>
+            <Switch
+              value={preferences.showSpicy}
+              onValueChange={setShowSpicy}
+              trackColor={{ false: palette.surface3, true: palette.plum }}
+              thumbColor={palette.text}
+              accessibilityLabel="Show Spicy deck"
+            />
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -150,5 +169,35 @@ const styles = StyleSheet.create({
   breakdownPct: {
     ...typeScale.metaHint,
     color: palette.textSoft,
+  },
+  settings: {
+    marginTop: space.lg,
+    gap: space.md,
+  },
+  settingsLabel: {
+    ...typeScale.labelCap,
+    color: palette.textFaint,
+  },
+  settingsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.md,
+    backgroundColor: palette.surface,
+    borderColor: palette.rim,
+    borderWidth: 1,
+    borderRadius: radius.stat,
+    padding: space.md,
+  },
+  settingsCopy: {
+    flex: 1,
+    gap: space.xs,
+  },
+  settingsTitle: {
+    ...typeScale.uiBody,
+    color: palette.text,
+  },
+  settingsHelp: {
+    ...typeScale.metaHint,
+    color: palette.textFaint,
   },
 });
