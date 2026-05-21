@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { palette, space, typeScale } from '~/theme';
+
 export default function DecksScreen() {
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
@@ -15,22 +17,20 @@ export default function DecksScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#0D0A12',
+    backgroundColor: palette.void,
   },
   body: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 48,
+    paddingHorizontal: space.lg,
+    paddingTop: space['2xl'],
   },
   headline: {
-    color: '#F0EAF8',
-    fontSize: 42,
-    fontWeight: '300',
-    fontStyle: 'italic',
+    ...typeScale.display,
+    color: palette.text,
   },
   subtitle: {
-    color: '#7A6A90',
-    fontSize: 13,
-    marginTop: 8,
+    ...typeScale.uiBody,
+    color: palette.textFaint,
+    marginTop: space.sm,
   },
 });

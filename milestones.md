@@ -43,19 +43,19 @@ Acceptance criteria:
 
 ## M2 — Theme And Components
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: translate the approved Attune design system into reusable React Native theme tokens and components.
 
-- [ ] Implement `theme/colors.ts`
-- [ ] Implement `theme/typography.ts`
-- [ ] Implement `theme/spacing.ts`
-- [ ] Add Cormorant Garamond and Jost font assets
-- [ ] Build `ProgressBar`
-- [ ] Build `PillBadge`
-- [ ] Build `CategoryTile`
-- [ ] Build `StatCard`
-- [ ] Build `CardFlip`
+- [x] Implement `theme/colors.ts`
+- [x] Implement `theme/typography.ts`
+- [x] Implement `theme/spacing.ts`
+- [x] Add Cormorant Garamond and Jost font assets
+- [x] Build `ProgressBar`
+- [x] Build `PillBadge`
+- [x] Build `CategoryTile`
+- [x] Build `StatCard`
+- [x] Build `CardFlip`
 
 Acceptance criteria:
 
