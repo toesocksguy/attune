@@ -106,17 +106,17 @@ Acceptance criteria:
 
 ## M5 — Core Screens
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: implement the primary user journey from choosing a deck to drawing cards and viewing progress.
 
-- [ ] Build Home / Decks screen
-- [ ] Build Category Detail screen
-- [ ] Build Card screen
-- [ ] Build Journey / Stats screen
-- [ ] Wire 2-tab bottom navigation
-- [ ] Wire stack navigation for category and card routes
-- [ ] Hide disabled Spicy content from navigation and screen reader reachability
+- [x] Build Home / Decks screen
+- [x] Build Category Detail screen
+- [x] Build Card screen
+- [x] Build Journey / Stats screen
+- [x] Wire 2-tab bottom navigation
+- [x] Wire stack navigation for category and card routes
+- [x] Hide disabled Spicy content from navigation and screen reader reachability
 
 Acceptance criteria:
 

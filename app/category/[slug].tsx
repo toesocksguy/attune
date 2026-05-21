@@ -23,13 +23,15 @@ export default function CategoryDetailScreen() {
   const { stats } = useStats();
 
   const category = slug ? CATEGORY_BY_SLUG[slug] : undefined;
-  const blocked = slug === 'spicy' && prefsReady && !preferences.showSpicy;
+  const isSpicy = slug === 'spicy';
+  const spicyPending = isSpicy && !prefsReady;
+  const blocked = isSpicy && prefsReady && !preferences.showSpicy;
 
   useEffect(() => {
     if (blocked) router.replace('/');
   }, [blocked, router]);
 
-  if (!category || blocked) {
+  if (!category || spicyPending || blocked) {
     return (
       <SafeAreaView style={styles.screen} edges={['top']}>
         <Stack.Screen options={{ headerShown: true, headerTitle: '', headerTintColor: palette.text }} />
