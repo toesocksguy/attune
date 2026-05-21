@@ -24,22 +24,6 @@ export function usePreferences() {
     await writeJson(STORAGE_KEYS.preferences, next);
   }, []);
 
-  const confirmAge = useCallback(async () => {
-    await persist({
-      ageConfirmed: true,
-      showSpicy: true,
-      firstLaunchCompleted: true,
-    });
-  }, [persist]);
-
-  const declineAge = useCallback(async () => {
-    await persist({
-      ageConfirmed: false,
-      showSpicy: false,
-      firstLaunchCompleted: true,
-    });
-  }, [persist]);
-
   const setShowSpicy = useCallback(
     async (show: boolean) => {
       await persist({ ...value, showSpicy: show });
@@ -47,5 +31,5 @@ export function usePreferences() {
     [persist, value],
   );
 
-  return { ready, preferences: value, confirmAge, declineAge, setShowSpicy };
+  return { ready, preferences: value, setShowSpicy };
 }

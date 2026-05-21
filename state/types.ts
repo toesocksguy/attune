@@ -19,9 +19,7 @@ export type CategoryDeckState = {
 export type DeckState = Record<CategorySlug, CategoryDeckState>;
 
 export type AppPreferences = {
-  ageConfirmed: boolean;
   showSpicy: boolean;
-  firstLaunchCompleted: boolean;
 };
 
 export const STORAGE_KEYS = {
@@ -31,7 +29,5 @@ export const STORAGE_KEYS = {
 } as const;
 
 export const DEFAULT_PREFERENCES: AppPreferences = {
-  ageConfirmed: false,
-  showSpicy: false,
-  firstLaunchCompleted: false,
+  showSpicy: true,
 };

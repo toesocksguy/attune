@@ -111,9 +111,7 @@ type DeckState = Record<CardCategory, CategoryDeckState>;
 
 ```ts
 interface AppPreferences {
-  ageConfirmed: boolean;
   showSpicy: boolean;
-  firstLaunchCompleted: boolean;
 }
 ```
 
@@ -191,10 +189,9 @@ All preferences read/written via AsyncStorage under key `@attune_preferences`.
 
 Rules:
 
-- Default preferences: `{ ageConfirmed: false, showSpicy: false, firstLaunchCompleted: false }`
-- Age gate appears before deck access when `ageConfirmed` is false
-- Confirming age sets `ageConfirmed`, `showSpicy`, and `firstLaunchCompleted` to true
-- Users may later turn `showSpicy` off locally
+- Default preferences: `{ showSpicy: true }`
+- Spicy is visible by default; V1 ships without an age gate because the deck content is suggestive but not explicit
+- Users may turn `showSpicy` off locally via the Journey settings toggle
 - When `showSpicy` is false, Spicy is hidden from category lists, stats breakdown, and route access
 
 ### 4.5 Streak Calculation
@@ -262,15 +259,7 @@ When reduced motion is enabled, replace the 3D flip with an opacity crossfade an
 - Update session timer every 60 seconds via `setInterval`
 - Exclude Spicy from visible breakdown and favourite-category display when `showSpicy` is false
 
-### 5.5 First Launch / Age Gate
-
-- Root layout checks preferences before showing tabs
-- If `ageConfirmed` is false, render age gate before app navigation
-- Age gate copy states that Attune is for adults and may contain intimacy-focused prompts
-- Confirm button stores preferences locally and enters the app
-- Decline exits the flow to a static screen explaining that the app requires 18+ confirmation
-
-### 5.6 Privacy / Content Screen
+### 5.5 Privacy / Content Screen
 
 - Static screen reachable from Journey
 - States that V1 has no accounts, backend, cloud sync, ads, analytics, or third-party tracking
@@ -287,11 +276,10 @@ When reduced motion is enabled, replace the 3D flip with an opacity crossfade an
 - Deck logic: initial shuffle, skip behavior, next behavior, exhaustion reshuffle, persisted pointer restore
 - Stats logic: session threshold, total sessions, total cards drawn, seen IDs, favourite category
 - Streak logic: local date continuity, gaps, month/year boundaries, daylight saving edge cases
-- Preferences: default state, age confirmation, Spicy visibility toggling
+- Preferences: default state, Spicy visibility toggling
 
 ### Manual QA
 
-- First launch age gate on iOS and Android
 - Hide/show Spicy content and verify navigation guards
 - Restart app mid-deck and verify next card does not repeat
 - Complete a small test deck cycle and verify reshuffle behavior
