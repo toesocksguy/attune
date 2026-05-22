@@ -124,25 +124,25 @@ Acceptance criteria:
 - Journey shows total cards drawn, current streak, sessions, favourite category, session timer, and deck progress.
 - Back navigation is available on sub-screens.
 
-## M6 — Adult Content And Privacy
+## M6 — Content Controls And Privacy
 
-Status: `[ ]`
+Status: `[x]`
 
-Goal: meet the age gate, content control, privacy, and store review requirements for mature content.
+Goal: ship the Spicy visibility toggle, privacy and content-note screens, and store rating metadata. V1 intentionally has no age gate — deck content is suggestive but not explicit.
 
-- [ ] Build first-launch age confirmation
-- [ ] Persist age confirmation locally
-- [ ] Add Spicy content visibility toggle
-- [ ] Add privacy screen copy
-- [ ] Add content note copy
-- [ ] Add store rating metadata
-- [ ] Block direct route access to Spicy when disabled
+- [x] Add Spicy content visibility toggle
+- [x] Add privacy screen copy
+- [x] Add content note copy
+- [x] Block direct route access to Spicy when disabled
+
+Store rating metadata for App Store Connect and Google Play Console is filled at submission time and tracked under M8.
 
 Acceptance criteria:
 
-- Spicy content is hidden until age confirmation and local preference allow it.
+- Spicy content is hidden from Decks, Journey, and direct route access when `showSpicy` is false.
 - Privacy copy clearly states no accounts, no backend, no analytics in V1, and local-only progress storage.
-- Mature content requirements are represented in app metadata and in-app controls.
+- Content note covers intimacy, vulnerability, conflict-sensitive prompts and the Spicy deck disclosure.
+- Store rating metadata is filled at App Store Connect / Play Console submission in M8.
 
 ## M7 — Accessibility And Performance
 
@@ -198,3 +198,4 @@ These are explicitly out of scope for V1 unless the plan changes.
 - [ ] Pattern-based insights
 - [ ] Custom card creation
 - [ ] Analytics-backed retention metrics
+- [ ] Revisit age gate / 18+ confirmation if explicit content is added to Spicy or a new explicit deck lands

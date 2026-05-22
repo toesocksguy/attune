@@ -44,7 +44,7 @@ Attune removes friction from meaningful connection. No subscription. No data col
 | G1 | Deliver all 200 cards across 6 categories with card flip animation |
 | G2 | Persist stats locally: streak, sessions, cards drawn, category progress |
 | G3 | Polished dark purple UI matching approved design system |
-| G4 | Include age gate, adult-content controls, and privacy copy required for store review |
+| G4 | Include Spicy visibility toggle, privacy copy, and content note required for store review |
 | G5 | Publish to App Store and Google Play as $0.99 one-time purchase; release free APK from GitHub |
 | G6 | Open source repository on GitHub with GPL-3.0 license |
 
@@ -77,7 +77,7 @@ Attune removes friction from meaningful connection. No subscription. No data col
 - Each tile shows: emoji, name, X of Y seen, progress bar
 - Each tile uses its unique category color accent
 - Tap tile navigates to Category Detail screen
-- Spicy tile is hidden until age confirmation is complete and the Spicy content toggle is enabled
+- Spicy tile is hidden whenever the Spicy visibility toggle is off
 
 ### 6.2 Category Detail Screen
 
@@ -118,15 +118,14 @@ Attune removes friction from meaningful connection. No subscription. No data col
 - Types: `question`, `activity`, `dare`
 - Card IDs are stable and category-scoped or globally unique; they must not change after release unless a migration is added
 
-### 6.6 First Launch / Adult Content
+### 6.6 Content Controls
 
-- First launch displays an age confirmation screen before deck access
-- User must confirm they are 18+ to continue
-- Age confirmation is stored locally only
-- Spicy deck is hidden until age confirmation is complete
-- Settings include a local-only toggle to hide or show Spicy content after onboarding
+- V1 ships without a first-launch age gate; deck content is suggestive but not explicit
+- Journey settings include a local-only toggle to hide or show the Spicy deck (default: on)
+- When the toggle is off, Spicy is hidden from the Decks grid, Journey breakdown, and direct route access
 - The app includes a plain-language privacy screen stating that Attune has no accounts, no backend, no analytics in V1, and stores progress only on the device
 - The app includes a short content note: prompts may include intimacy, sexuality, conflict, and emotionally sensitive topics
+- Revisit a 18+ age gate in V2 if explicit content is added to Spicy or a new explicit deck lands
 
 ---
 
@@ -197,7 +196,7 @@ All card text is original — no verbatim reproduction of copyrighted material.
 3. Stats persist correctly across app restarts
 4. Deck order persists across app restarts with no repeats until deck exhaustion
 5. Streaks are calculated using the user's local calendar date
-6. Age gate, Spicy content toggle, privacy screen, and store rating metadata are present
+6. Spicy visibility toggle, privacy screen, content note, and store rating metadata are present
 7. App passes App Store and Google Play review
 8. No crashes on core user flows in testing
 
@@ -216,7 +215,7 @@ All card text is original — no verbatim reproduction of copyrighted material.
 |------|------|------------|
 | Assumption | Users play together on one device | Design for shared screen — large text, visible from distance |
 | Assumption | $0.99 store price offsets developer account fees without deterring buyers; free APK preserves an accessible path | Direct APK distribution from GitHub releases guarantees a free option; GPL-3.0 permits redistribution (derivatives must remain GPL-3.0) |
-| Risk | App Store rejection for adult content | Age gate on launch, Spicy content toggle, explicit store rating metadata, privacy/content notes |
+| Risk | App Store rejection for suggestive content | Spicy visibility toggle, explicit store rating metadata, privacy/content notes, revisit age gate in V2 if explicit content is added |
 | Risk | Name "Attune" taken before submission | Verify in App Store Connect before building |
 | Risk | Deck repeats after restart feel broken | Persist per-category deck order, draw pointer, and cycle count locally |
 | Risk | Streak bugs around timezone changes | Store and compare local calendar dates, not UTC-only timestamps |
