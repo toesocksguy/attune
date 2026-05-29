@@ -6,11 +6,33 @@ An open-source, offline couples card deck app for iOS and Android. Free APK dire
 
 ## Status
 
-Planning complete (M0). App scaffolding (M1) not yet started. The `attune-design/` directory holds in-browser mockups that prefigure the final Expo app.
+V1 feature-complete through M7 (accessibility and performance). Release readiness (M8) in progress.
 
 ## Stack
 
 Expo SDK 54, React Native 0.81, React 19, TypeScript (strict), Expo Router 6, AsyncStorage, Reanimated 4.
+
+## Getting started
+
+```bash
+git clone https://github.com/attune-app/attune.git
+cd attune
+npm install
+npx expo start
+```
+
+Scan the QR code with Expo Go (Android) or the Camera app (iOS), or press `i`/`a` to open a simulator.
+
+## Project structure
+
+```
+app/           Screen routes (Expo Router file-based navigation)
+components/    Reusable UI components
+data/          Card and category data
+state/         Hooks and helpers for local persistence
+theme/         Design tokens (colors, typography, spacing)
+assets/        Fonts, icons, splash screen
+```
 
 ## Documentation
 
@@ -19,8 +41,6 @@ Expo SDK 54, React Native 0.81, React 19, TypeScript (strict), Expo Router 6, As
 - [`designsystem.md`](designsystem.md) — visual language, motion, accessibility
 - [`attune-cards.md`](attune-cards.md) — editorial source of truth for card copy
 - [`milestones.md`](milestones.md) — roadmap and acceptance criteria
-- [`m0-closeout.md`](m0-closeout.md) — V1 scope decisions locked at end of M0
-- [`CLAUDE.md`](CLAUDE.md) — guidance for AI coding tools working in this repo
 
 ## License
 
