@@ -76,10 +76,10 @@ export function CategoryTile({
         ]}
       >
         <CategoryIcon slug={category} size={22} color={accent} strokeWidth={1.1} />
-        <Text style={styles.name} numberOfLines={1}>
+        <Text style={styles.name} numberOfLines={1} maxFontSizeMultiplier={1.4}>
           {name}
         </Text>
-        <Text style={styles.count}>
+        <Text style={styles.count} maxFontSizeMultiplier={1.5}>
           {seen} / {total}
         </Text>
         <View style={styles.progressWrap}>

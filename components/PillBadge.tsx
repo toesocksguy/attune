@@ -24,7 +24,7 @@ export function PillBadge({ text, tone, accessibilityLabel }: Props) {
       accessibilityLabel={accessibilityLabel ?? text}
     >
       <View style={[styles.dot, { backgroundColor: DOT_COLOR[tone] }]} />
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.text} maxFontSizeMultiplier={1.5}>{text}</Text>
     </View>
   );
 }

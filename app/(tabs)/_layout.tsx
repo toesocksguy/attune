@@ -22,6 +22,7 @@ export default function TabsLayout() {
           fontWeight: '500',
           letterSpacing: 0.5,
         },
+        tabBarAllowFontScaling: false,
         tabBarActiveTintColor: palette.plumLight,
         tabBarInactiveTintColor: palette.textSoft,
         tabBarInactiveBackgroundColor: palette.void,

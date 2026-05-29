@@ -76,7 +76,7 @@ export default function CardScreen() {
               }
               front={
                 <View style={styles.cardFront}>
-                  <Text style={styles.wordmark}>Attune</Text>
+                  <Text style={styles.wordmark} maxFontSizeMultiplier={1.2}>Attune</Text>
                 </View>
               }
               back={
@@ -86,7 +86,7 @@ export default function CardScreen() {
                   end={{ x: 1, y: 1 }}
                   style={styles.cardBack}
                 >
-                  <Text style={styles.cardText}>{card.text}</Text>
+                  <Text style={styles.cardText} maxFontSizeMultiplier={1.3}>{card.text}</Text>
                 </LinearGradient>
               }
             />
@@ -102,7 +102,7 @@ export default function CardScreen() {
             onPress={onSkip}
             style={({ pressed }) => [styles.btn, styles.btnSecondary, pressed && styles.btnPressed]}
           >
-            <Text style={[styles.btnText, styles.btnSecondaryText]}>Skip</Text>
+            <Text style={[styles.btnText, styles.btnSecondaryText]} maxFontSizeMultiplier={1.4}>Skip</Text>
           </Pressable>
           <Pressable
             accessibilityRole="button"
@@ -110,7 +110,7 @@ export default function CardScreen() {
             onPress={onNext}
             style={({ pressed }) => [styles.btn, styles.btnPrimary, pressed && styles.btnPressed]}
           >
-            <Text style={[styles.btnText, styles.btnPrimaryText]}>Next</Text>
+            <Text style={[styles.btnText, styles.btnPrimaryText]} maxFontSizeMultiplier={1.4}>Next</Text>
           </Pressable>
         </View>
       </View>

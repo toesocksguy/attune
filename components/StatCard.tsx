@@ -19,10 +19,10 @@ export function StatCard({ label, value, icon, accent, accessibilityLabel }: Pro
       accessibilityLabel={accessibilityLabel ?? `${label}: ${value}`}
     >
       <View style={styles.header}>
-        <Text style={styles.label}>{label}</Text>
+        <Text style={styles.label} maxFontSizeMultiplier={1.5}>{label}</Text>
         {icon ? <Text style={styles.icon}>{icon}</Text> : null}
       </View>
-      <Text style={[styles.value, accent ? { color: accent } : null]} numberOfLines={1}>
+      <Text style={[styles.value, accent ? { color: accent } : null]} numberOfLines={1} maxFontSizeMultiplier={1.3}>
         {value}
       </Text>
     </View>

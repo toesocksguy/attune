@@ -50,7 +50,7 @@ export default function CategoryDetailScreen() {
         <View style={styles.hero}>
           <CategoryIcon slug={category.slug} size={56} color={accent} strokeWidth={1.1} />
           <Text style={styles.name} accessibilityRole="header">{category.name}</Text>
-          <Text style={styles.meta}>
+          <Text style={styles.meta} maxFontSizeMultiplier={1.5}>
             {TYPE_LABEL[category.type] ?? category.type} · Level {category.level}
           </Text>
         </View>
@@ -80,7 +80,7 @@ export default function CategoryDetailScreen() {
             end={{ x: 1, y: 1 }}
             style={styles.cta}
           >
-            <Text style={styles.ctaText}>Draw a Card</Text>
+            <Text style={styles.ctaText} maxFontSizeMultiplier={1.4}>Draw a Card</Text>
           </LinearGradient>
         </Pressable>
       </View>
