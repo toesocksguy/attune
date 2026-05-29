@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#0D0A12"
     },
     "ios": {
@@ -21,7 +21,7 @@
       "package": "com.attune.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0D0A12"
+        "backgroundImage": "./assets/adaptive-icon-bg.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
