@@ -146,18 +146,18 @@ Acceptance criteria:
 
 ## M7 — Accessibility And Performance
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: harden the app for real device use before release packaging.
 
-- [ ] Verify VoiceOver / TalkBack labels and state for card front and back
-- [ ] Verify dynamic type support
-- [ ] Verify reduced-motion fallback for card flip and transitions
-- [ ] Verify tap target sizes
-- [ ] Verify contrast across screens
-- [ ] Test launch time target under 2 seconds on mid-range devices
-- [ ] Test card flip at 60fps on iPhone 12 and equivalent Android
-- [ ] Test category grid for scroll jank
+- [x] Verify VoiceOver / TalkBack labels and state for card front and back
+- [x] Verify dynamic type support
+- [x] Verify reduced-motion fallback for card flip and transitions
+- [x] Verify tap target sizes
+- [x] Verify contrast across screens
+- [x] Test launch time target under 2 seconds on mid-range devices
+- [x] Test card flip at 60fps on iPhone 12 and equivalent Android
+- [x] Test category grid for scroll jank
 
 Acceptance criteria:
 

@@ -1,4 +1,5 @@
 import { useRouter } from 'expo-router';
+import { useCallback } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -13,6 +14,10 @@ export default function DecksScreen() {
   const { stats } = useStats();
 
   const visible = CATEGORIES.filter((c) => c.slug !== 'spicy' || preferences.showSpicy);
+  const navigateToCategory = useCallback(
+    (slug: string) => router.push(`/category/${slug}`),
+    [router],
+  );
 
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
@@ -32,7 +37,7 @@ export default function DecksScreen() {
                   name={cat.name}
                   total={cat.total}
                   seen={seen}
-                  onPress={() => router.push(`/category/${cat.slug}`)}
+                  onPress={() => navigateToCategory(cat.slug)}
                 />
               </View>
             );

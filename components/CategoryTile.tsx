@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { memo, useRef } from 'react';
 import {
   Animated,
   Pressable,
@@ -30,7 +30,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export function CategoryTile({
+export const CategoryTile = memo(function CategoryTile({
   category,
   name,
   total,
@@ -97,7 +97,7 @@ export function CategoryTile({
       </Animated.View>
     </Pressable>
   );
-}
+});
 
 const styles = StyleSheet.create({
   pressable: {
