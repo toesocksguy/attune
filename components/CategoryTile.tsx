@@ -7,6 +7,7 @@ import {
   View,
   type GestureResponderEvent,
 } from 'react-native';
+import { useReducedMotion } from 'react-native-reanimated';
 
 import {
   categoryAccent,
@@ -38,10 +39,12 @@ export function CategoryTile({
   disabled,
 }: Props) {
   const scale = useRef(new Animated.Value(1)).current;
+  const reduceMotion = useReducedMotion();
   const accent = categoryAccent[category];
   const progress = total === 0 ? 0 : seen / total;
 
   const pressIn = () => {
+    if (reduceMotion) return;
     Animated.timing(scale, {
       toValue: 0.96,
       duration: 180,
@@ -50,6 +53,7 @@ export function CategoryTile({
   };
 
   const pressOut = () => {
+    if (reduceMotion) return;
     Animated.timing(scale, {
       toValue: 1,
       duration: 180,
