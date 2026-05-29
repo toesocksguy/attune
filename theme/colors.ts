@@ -13,7 +13,7 @@ export const palette = {
   gold: '#C8A96E',
   text: '#F0EAF8',
   textSoft: '#B8A8D0',
-  textFaint: '#7A6A90',
+  textFaint: '#8D7DA5',
   textGhost: '#3D3255',
 } as const;
 
