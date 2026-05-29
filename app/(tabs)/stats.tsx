@@ -55,7 +55,7 @@ export default function JourneyScreen() {
     <SafeAreaView style={styles.screen} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.header}>
-          <Text style={styles.headline}>Journey</Text>
+          <Text style={styles.headline} accessibilityRole="header">Journey</Text>
           <Text style={styles.subtitle}>Your time together, tracked locally.</Text>
         </View>
 
@@ -82,7 +82,7 @@ export default function JourneyScreen() {
         ) : null}
 
         <View style={styles.breakdown}>
-          <Text style={styles.breakdownLabel}>Deck progress</Text>
+          <Text style={styles.breakdownLabel} accessibilityRole="header">Deck progress</Text>
           {visible.map((cat) => {
             const seen = stats.categorySeenIds[cat.slug]?.length ?? 0;
             const pct = cat.total === 0 ? 0 : seen / cat.total;
@@ -107,7 +107,7 @@ export default function JourneyScreen() {
         </View>
 
         <View style={styles.settings}>
-          <Text style={styles.settingsLabel}>Settings</Text>
+          <Text style={styles.settingsLabel} accessibilityRole="header">Settings</Text>
           <View style={styles.settingsRow}>
             <View style={styles.settingsCopy}>
               <Text style={styles.settingsTitle}>Show Spicy deck</Text>

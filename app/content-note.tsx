@@ -34,7 +34,7 @@ export default function ContentNoteScreen() {
         options={{ headerShown: true, headerTitle: 'Content note', headerTintColor: palette.text }}
       />
       <ScrollView contentContainerStyle={styles.scroll}>
-        <Text style={styles.headline}>A gentle heads-up</Text>
+        <Text style={styles.headline} accessibilityRole="header">A gentle heads-up</Text>
         <Text style={styles.lead}>
           Attune is meant to deepen connection. Some prompts go to vulnerable places. Read this
           before you draw your first card.
@@ -43,7 +43,7 @@ export default function ContentNoteScreen() {
         <View style={styles.sections}>
           {SECTIONS.map((s) => (
             <View key={s.title} style={styles.section}>
-              <Text style={styles.sectionTitle}>{s.title}</Text>
+              <Text style={styles.sectionTitle} accessibilityRole="header">{s.title}</Text>
               <Text style={styles.sectionBody}>{s.body}</Text>
             </View>
           ))}

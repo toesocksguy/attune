@@ -49,7 +49,7 @@ export default function CategoryDetailScreen() {
       <View style={styles.body}>
         <View style={styles.hero}>
           <CategoryIcon slug={category.slug} size={56} color={accent} strokeWidth={1.1} />
-          <Text style={styles.name}>{category.name}</Text>
+          <Text style={styles.name} accessibilityRole="header">{category.name}</Text>
           <Text style={styles.meta}>
             {TYPE_LABEL[category.type] ?? category.type} · Level {category.level}
           </Text>

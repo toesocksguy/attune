@@ -18,7 +18,7 @@ export default function DecksScreen() {
     <SafeAreaView style={styles.screen} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.header}>
-          <Text style={styles.headline}>Attune</Text>
+          <Text style={styles.headline} accessibilityRole="header">Attune</Text>
           <Text style={styles.subtitle}>Pick a deck to begin.</Text>
         </View>
 

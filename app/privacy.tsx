@@ -21,7 +21,7 @@ export default function PrivacyScreen() {
         options={{ headerShown: true, headerTitle: 'Privacy', headerTintColor: palette.text }}
       />
       <ScrollView contentContainerStyle={styles.scroll}>
-        <Text style={styles.headline}>Private by design</Text>
+        <Text style={styles.headline} accessibilityRole="header">Private by design</Text>
         <Text style={styles.lead}>
           Attune is built so the two of you can be present with each other, not with a service.
           Nothing you do here leaves this device.
@@ -30,7 +30,7 @@ export default function PrivacyScreen() {
         <View style={styles.list}>
           {POINTS.map((p, i) => (
             <View key={i} style={styles.row}>
-              <View style={styles.bullet} />
+              <View style={styles.bullet} importantForAccessibility="no-hide-descendants" accessible={false} />
               <Text style={styles.point}>{p}</Text>
             </View>
           ))}
