@@ -21,7 +21,36 @@ npm install
 npx expo start
 ```
 
-Scan the QR code with Expo Go (Android) or the Camera app (iOS), or press `i`/`a` to open a simulator.
+This boots the Metro bundler and prints a QR code in the terminal.
+
+### Run in Expo Go
+
+[Expo Go](https://expo.dev/go) is the easiest way to run Attune on a physical
+device — no native build required.
+
+1. Install **Expo Go** from the [App Store](https://apps.apple.com/app/expo-go/id982107779)
+   (iOS) or [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+   (Android).
+2. Start the dev server: `npx expo start` (or `npm start`).
+3. Open the app:
+   - **Android** — open Expo Go and scan the terminal QR code.
+   - **iOS** — scan the QR code with the system Camera app; it deep-links into
+     Expo Go.
+4. Keep the phone and computer on the **same Wi-Fi network**. Behind a firewall
+   or on separate networks, force a relay connection with `npx expo start --tunnel`.
+
+The app hot-reloads on save. Press `r` in the terminal to reload manually, `m`
+to toggle the dev menu, `j` to open the debugger.
+
+### Run in a simulator
+
+With the dev server running, press `i` for the iOS Simulator (macOS + Xcode) or
+`a` for the Android emulator. Or launch directly with `npm run ios` / `npm run android`.
+
+> **Note:** Attune uses Reanimated 4, which requires the React Native New
+> Architecture. SDK 54's Expo Go ships it enabled, so animations run in Expo Go.
+> A custom dev client is only needed if you add a native module Expo Go doesn't
+> bundle.
 
 ## Project structure
 
