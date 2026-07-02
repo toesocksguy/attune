@@ -171,12 +171,12 @@ Status: `[ ]`
 
 Goal: prepare Attune for public open-source release and app store submission.
 
-- [ ] Initialize git repository when ready
-- [ ] Publish GitHub repository
-- [ ] Confirm GPL-3.0 license
+- [x] Initialize git repository when ready
+- [x] Publish GitHub repository
+- [x] Confirm GPL-3.0 license
 - [ ] Verify app name availability
-- [ ] Configure app icons and splash assets
-- [ ] Configure EAS builds
+- [x] Configure app icons and splash assets
+- [x] Configure EAS builds
 - [ ] Run iOS release candidate build
 - [ ] Run Android release candidate build
 - [ ] Complete App Store submission checklist
