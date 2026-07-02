@@ -1,43 +1,26 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Stack, useLocalSearchParams } from 'expo-router';
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CardFlip } from '~/components';
-import { CARDS } from '~/data/cards';
-import { CATEGORY_BY_SLUG } from '~/data/categories';
+import { CARD_BY_ID } from '~/data/lookup';
 import type { CategorySlug } from '~/data/types';
-import { useDeck, usePreferences, useSession, useStats } from '~/state';
+import { useDeck, useSession, useSpicyGate, useStats } from '~/state';
 import { minTapTarget, palette, radius, space, typeScale } from '~/theme';
 
 export default function CardScreen() {
   const { slug } = useLocalSearchParams<{ slug: CategorySlug }>();
-  const router = useRouter();
-  const { preferences, ready: prefsReady } = usePreferences();
+  const { category, gated } = useSpicyGate(slug);
   const { current, skip, next, ready: deckReady } = useDeck();
   const { recordCardSeen } = useStats();
   useSession();
 
-  const category = slug ? CATEGORY_BY_SLUG[slug] : undefined;
-  const isSpicy = slug === 'spicy';
-  const spicyPending = isSpicy && !prefsReady;
-  const blocked = isSpicy && prefsReady && !preferences.showSpicy;
-
   const [flipped, setFlipped] = useState(false);
 
-  useEffect(() => {
-    if (blocked) router.replace('/');
-  }, [blocked, router]);
-
-  const cardsById = useMemo(() => {
-    const m = new Map<number, (typeof CARDS)[number]>();
-    for (const c of CARDS) m.set(c.id, c);
-    return m;
-  }, []);
-
   const currentId = deckReady && slug ? current(slug) : null;
-  const card = currentId != null ? cardsById.get(currentId) : null;
+  const card = currentId != null ? CARD_BY_ID.get(currentId) : null;
 
   const onSkip = async () => {
     if (!slug) return;
@@ -52,7 +35,7 @@ export default function CardScreen() {
     if (seenId != null && category) await recordCardSeen(category.slug, seenId);
   };
 
-  if (!category || spicyPending || blocked) {
+  if (!category || gated) {
     return (
       <SafeAreaView style={styles.screen} edges={['top']}>
         <Stack.Screen options={{ headerShown: true, headerTitle: '', headerTintColor: palette.text }} />

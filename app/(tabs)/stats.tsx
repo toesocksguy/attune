@@ -1,13 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CategoryIcon, ProgressBar, StatCard } from '~/components';
 import { CATEGORIES } from '~/data/categories';
 import type { CategorySlug } from '~/data/types';
-import { calcStreak, usePreferences, useStats } from '~/state';
+import { calcStreak, useElapsedSince, usePreferences, useStats } from '~/state';
 import { categoryAccent, minTapTarget, palette, radius, space, typeScale } from '~/theme';
 
 function formatElapsed(ms: number): string {
@@ -24,18 +23,7 @@ export default function JourneyScreen() {
   const { stats } = useStats();
   const { preferences, setShowSpicy } = usePreferences();
   const sessionStartTime = stats.sessionStartTime;
-  const [elapsedMs, setElapsedMs] = useState(0);
-
-  useEffect(() => {
-    if (sessionStartTime === 0) {
-      setElapsedMs(0);
-      return;
-    }
-    const tick = () => setElapsedMs(Date.now() - sessionStartTime);
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [sessionStartTime]);
+  const elapsedMs = useElapsedSince(sessionStartTime);
 
   const visible = CATEGORIES.filter((c) => c.slug !== 'spicy' || preferences.showSpicy);
   const streak = calcStreak(stats.daysUsed);

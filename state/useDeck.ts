@@ -1,32 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { CARDS } from '~/data/cards';
 import { CATEGORIES } from '~/data/categories';
+import { CARD_IDS_BY_CATEGORY } from '~/data/lookup';
 import type { CategorySlug } from '~/data/types';
 
-import { advance, currentCardId, makeDeckState } from './deck';
+import { advance, currentCardId, ensureDeck } from './deck';
 import { readJson, writeJson } from './storage';
 import { STORAGE_KEYS, type DeckState } from './types';
 
-function cardIdsByCategory(): Record<CategorySlug, number[]> {
-  const out = {} as Record<CategorySlug, number[]>;
-  for (const c of CATEGORIES) out[c.slug] = [];
-  for (const card of CARDS) out[card.category]!.push(card.id);
-  return out;
-}
-
 function initializeState(stored: Partial<DeckState> | null): DeckState {
-  const ids = cardIdsByCategory();
-  const out = {} as DeckState;
+  let decks: Partial<DeckState> = stored ?? {};
   for (const c of CATEGORIES) {
-    const existing = stored?.[c.slug];
-    if (existing && existing.order.length === ids[c.slug].length) {
-      out[c.slug] = existing;
-    } else {
-      out[c.slug] = makeDeckState(ids[c.slug]);
-    }
+    decks = ensureDeck(decks, c.slug, CARD_IDS_BY_CATEGORY[c.slug]).decks;
   }
-  return out;
+  return decks as DeckState;
 }
 
 export function useDeck() {
@@ -64,8 +51,10 @@ export function useDeck() {
   const skip = useCallback(
     async (slug: CategorySlug) => {
       if (!decks) return;
-      const ids = CARDS.filter((c) => c.category === slug).map((c) => c.id);
-      const next: DeckState = { ...decks, [slug]: advance(decks[slug], ids) };
+      const next: DeckState = {
+        ...decks,
+        [slug]: advance(decks[slug], CARD_IDS_BY_CATEGORY[slug]),
+      };
       await persist(next);
     },
     [decks, persist],
@@ -75,8 +64,10 @@ export function useDeck() {
     async (slug: CategorySlug): Promise<number | null> => {
       if (!decks) return null;
       const seenId = currentCardId(decks[slug]);
-      const ids = CARDS.filter((c) => c.category === slug).map((c) => c.id);
-      const advanced: DeckState = { ...decks, [slug]: advance(decks[slug], ids) };
+      const advanced: DeckState = {
+        ...decks,
+        [slug]: advance(decks[slug], CARD_IDS_BY_CATEGORY[slug]),
+      };
       await persist(advanced);
       return seenId;
     },

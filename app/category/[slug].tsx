@@ -1,16 +1,14 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useEffect } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CategoryIcon, ProgressBar } from '~/components';
-import { CATEGORY_BY_SLUG } from '~/data/categories';
-import type { CategorySlug } from '~/data/types';
-import { usePreferences, useStats } from '~/state';
+import type { CardType, CategorySlug } from '~/data/types';
+import { useSpicyGate, useStats } from '~/state';
 import { categoryAccent, minTapTarget, palette, radius, shadow, space, typeScale } from '~/theme';
 
-const TYPE_LABEL: Record<string, string> = {
+const TYPE_LABEL: Record<CardType, string> = {
   question: 'Questions',
   activity: 'Activities',
   dare: 'Dares',
@@ -19,19 +17,10 @@ const TYPE_LABEL: Record<string, string> = {
 export default function CategoryDetailScreen() {
   const { slug } = useLocalSearchParams<{ slug: CategorySlug }>();
   const router = useRouter();
-  const { preferences, ready: prefsReady } = usePreferences();
+  const { category, gated } = useSpicyGate(slug);
   const { stats } = useStats();
 
-  const category = slug ? CATEGORY_BY_SLUG[slug] : undefined;
-  const isSpicy = slug === 'spicy';
-  const spicyPending = isSpicy && !prefsReady;
-  const blocked = isSpicy && prefsReady && !preferences.showSpicy;
-
-  useEffect(() => {
-    if (blocked) router.replace('/');
-  }, [blocked, router]);
-
-  if (!category || spicyPending || blocked) {
+  if (!category || gated) {
     return (
       <SafeAreaView style={styles.screen} edges={['top']}>
         <Stack.Screen options={{ headerShown: true, headerTitle: '', headerTintColor: palette.text }} />
@@ -51,7 +40,7 @@ export default function CategoryDetailScreen() {
           <CategoryIcon slug={category.slug} size={56} color={accent} strokeWidth={1.1} />
           <Text style={styles.name} accessibilityRole="header">{category.name}</Text>
           <Text style={styles.meta} maxFontSizeMultiplier={1.5}>
-            {TYPE_LABEL[category.type] ?? category.type} · Level {category.level}
+            {TYPE_LABEL[category.type]} · Level {category.level}
           </Text>
         </View>
 
