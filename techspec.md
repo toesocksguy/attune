@@ -31,7 +31,6 @@ attune/
     card/[id].tsx         ← Card draw screen
     _layout.tsx           ← Root layout
   components/
-    AgeGate.tsx           ← First-launch 18+ confirmation
     CardFlip.tsx          ← 3D flip animation component
     CategoryTile.tsx      ← Home grid tile
     ProgressBar.tsx       ← Thin progress bar
@@ -40,10 +39,10 @@ attune/
   data/
     cards.ts              ← All 200 cards
     categories.ts         ← Category metadata
-  hooks/
+  state/
     useStats.ts           ← Stats read/write via AsyncStorage
     useDeck.ts            ← Card shuffle & draw logic
-    usePreferences.ts     ← Age gate and content visibility
+    usePreferences.ts     ← Content visibility preferences
     useSession.ts         ← Session timer
   theme/
     colors.ts             ← Full color palette

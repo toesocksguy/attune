@@ -24,16 +24,16 @@ Acceptance criteria:
 
 ## M1 — Expo App Scaffold
 
-Status: `[ ]`
+Status: `[x]`
 
 Goal: create the real Expo/React Native app structure that will replace the browser mockups as the implementation target.
 
-- [ ] Initialize Expo SDK 51+ app
-- [ ] Enable TypeScript strict mode
-- [ ] Add Expo Router file structure
-- [ ] Add base app tabs: Decks and Journey
-- [ ] Add app config, EAS config, and GPL-3.0 license
-- [ ] Install required dependencies: AsyncStorage, Reanimated, expo-font, icons
+- [x] Initialize Expo SDK 51+ app
+- [x] Enable TypeScript strict mode
+- [x] Add Expo Router file structure
+- [x] Add base app tabs: Decks and Journey
+- [x] Add app config, EAS config, and GPL-3.0 license
+- [x] Install required dependencies: AsyncStorage, Reanimated, expo-font, icons
 
 Acceptance criteria:
 
